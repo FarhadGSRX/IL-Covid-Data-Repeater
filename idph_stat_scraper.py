@@ -252,7 +252,7 @@ def the_work():
         df_zip_newlong.to_csv(idph_csv_folder / ("Long Zip %s.csv" % the_date_n_time), index=False)
         zip_spread.df_to_sheet(df_zip_newlong, index=False, sheet="long", start="A1", replace=True)
 
-    print("Zip Long version made and uploaded.")
+        print("Zip Long version made and uploaded.")
 
     if county_changed:
         df_county_oldlong = county_spread.sheet_to_df(index=0, sheet=county_spread.find_sheet("long"))
@@ -264,7 +264,7 @@ def the_work():
         df_county_newlong.to_csv(idph_csv_folder / ("Long County %s.csv" % the_date_n_time), index=False)
         county_spread.df_to_sheet(df_county_newlong, index=False, sheet="long", start="A1", replace=True)
 
-    print("Long editions made and uploaded.")
+        print("Long editions made and uploaded.")
 
     # %% If they were different, let's save them and upload them to sheets
     if zip_changed:
@@ -291,10 +291,16 @@ if __name__ == "__main__":
         creds_path = "/home/pi/Git/Credentials/ExProc-Creds.json"
         backup_folder = Path(script_folder / "backup")
         idph_csv_folder = Path(script_folder / "idph_csv")
+
+        while True:
+            minutesToSleep = ((60 - datetime.now().minute) % 30) + 5
+            print("Waiting %s minutes before running again." % minutesToSleep)
+            time.sleep(60 * minutesToSleep)
+            the_work()
     else:
         the_work()
 
-    while True:
+    while True:  # This while loop only runs while running off PC
         if datetime.now().hour < 12:  # Noon
             minutesToSleep = ((11 - datetime.now().hour) * 60) + (59 - datetime.now().minute % 60) + 5
             print("Waiting to run at 12:05pm.")
@@ -317,3 +323,10 @@ if __name__ == "__main__":
             continue
 
         the_work()
+
+# After pushing this to the main Git branch, here are the steps:
+# Turn on RPi and get to terminal
+# cd NicksNewsUpdater folder
+# git fetch --all
+# git reset --hard origin/master
+# run it homie --> python3 idph_stats_scraper.py rpi
