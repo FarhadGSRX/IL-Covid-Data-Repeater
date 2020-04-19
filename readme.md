@@ -135,19 +135,19 @@ By NOFO Regions
 ```
                    Case_Diff  Death_Diff
 NOFO                                    
-Central                   19           2
-Chicago                  598          64
-Collar                   382          21
+Central                    1           1
+Chicago                  526           1
+Collar                   208          11
 De Witt                    0           0
-Illinois                1585         125
-North Central             23           1
+Illinois                1197          31
+North Central            -10           0
 Northeast Central          3           0
-Northern                  53           0
-Northwest                 31           0
-Southeast Central         13           0
-Southern                  15           0
-Southwest Central         26           1
-Suburban                 406          36
-Unassigned                10           2
-West Central               6           0
+Northern                   8           0
+Northwest                  2           0
+Southeast Central         17           0
+Southern                  24           0
+Southwest Central         20           2
+Suburban                 351          16
+Unassigned                31           0
+West Central              16           0
 ```
