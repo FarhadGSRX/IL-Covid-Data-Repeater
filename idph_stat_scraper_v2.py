@@ -196,7 +196,11 @@ def the_work():
     # %%
     # Open the most recent Zip file for comparison
     zip_changed = False
-    df_zip_yday = zip_spread.sheet_to_df(index=0, sheet=zip_spread.find_sheet(the_date_year_yday))
+
+    # Assume the sheet has already been updated for the day, try grabbing and comparing with that first.
+    df_zip_yday = zip_spread.sheet_to_df(index=0, sheet=zip_spread.find_sheet(the_date_year))
+    if "update_time" in df_zip_yday.columns:  # Oh, so it didn't find it for today, let's grab the one from yesterday
+        df_zip_yday = zip_spread.sheet_to_df(index=0, sheet=zip_spread.find_sheet(the_date_year_yday))
 
     # Now explicitly compare tables to see if they're different
     df_zip_yday.set_index("Zip", inplace=True)
@@ -209,7 +213,11 @@ def the_work():
     # %%
     # Open the most recent County file for comparison
     county_changed = False
-    df_county_yday = county_spread.sheet_to_df(index=0, sheet=county_spread.find_sheet(the_date_year_yday))
+
+    # Assume the sheet has already been updated for the day, try grabbing and comparing with that first.
+    df_county_yday = county_spread.sheet_to_df(index=0, sheet=county_spread.find_sheet(the_date_year))
+    if "update_time" in df_county_yday.columns:  # Oh, so it didn't find it for today, let's grab the one from yesterday
+        df_county_yday = county_spread.sheet_to_df(index=0, sheet=county_spread.find_sheet(the_date_year_yday))
 
     # Now explicitly compare tables to see if they're different
     df_county_yday.set_index("County", inplace=True)
@@ -218,6 +226,17 @@ def the_work():
     else:
         print("County values have been detected as different.")
         county_changed = True
+
+    # %% If they were different, let's save them and upload them to sheets
+    if zip_changed:
+        df_zip_today.to_csv(idph_csv_folder / ("IDPH Stats Zip %s.csv" % the_date_n_time), index=True)
+        zip_spread.df_to_sheet(df_zip_today, index=False, sheet=the_date_year, start='A1', replace=True)
+        print("New Zip was uploaded to Sheets.")
+
+    if county_changed:
+        df_county_today.to_csv(idph_csv_folder / ("IDPH Stats County %s.csv" % the_date_n_time), index=True)
+        county_spread.df_to_sheet(df_county_today, index=True, sheet=the_date_year, start='A1', replace=True)
+        print("New County was uploaded to Sheets.")
 
     # %% Now deal with production of Nick's Long version
     print("Producing Zip and County long versions.")
@@ -246,16 +265,6 @@ def the_work():
 
         print("Long editions made and uploaded.")
 
-    # %% If they were different, let's save them and upload them to sheets
-    if zip_changed:
-        df_zip_today.to_csv(idph_csv_folder / ("IDPH Stats Zip %s.csv" % the_date_n_time), index=True)
-        zip_spread.df_to_sheet(df_zip_today, index=True, sheet=the_date_year, start='A1', replace=True)
-        print("New Zip was uploaded to Sheets.")
-
-    if county_changed:
-        df_county_today.to_csv(idph_csv_folder / ("IDPH Stats County %s.csv" % the_date_n_time), index=True)
-        county_spread.df_to_sheet(df_county_today, index=True, sheet=the_date_year, start='A1', replace=True)
-        print("New County was uploaded to Sheets.")
 
     # %%
     driver.close()
