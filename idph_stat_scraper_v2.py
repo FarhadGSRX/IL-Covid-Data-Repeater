@@ -198,9 +198,10 @@ def the_work():
     zip_changed = False
 
     # Assume the sheet has already been updated for the day, try grabbing and comparing with that first.
-    df_zip_yday = zip_spread.sheet_to_df(index=0, sheet=zip_spread.find_sheet(the_date_year))
+    zip_spread_yday = Spread(spread=gsheet_zip_link, creds=credentials)
+    df_zip_yday = zip_spread_yday.sheet_to_df(index=0, sheet=zip_spread.find_sheet(the_date_year))
     if "update_time" in df_zip_yday.columns:  # Oh, so it didn't find it for today, let's grab the one from yesterday
-        df_zip_yday = zip_spread.sheet_to_df(index=0, sheet=zip_spread.find_sheet(the_date_year_yday))
+        df_zip_yday = zip_spread_yday.sheet_to_df(index=0, sheet=zip_spread.find_sheet(the_date_year_yday))
 
     # Now explicitly compare tables to see if they're different
     df_zip_yday.set_index("Zip", inplace=True)
@@ -215,9 +216,11 @@ def the_work():
     county_changed = False
 
     # Assume the sheet has already been updated for the day, try grabbing and comparing with that first.
-    df_county_yday = county_spread.sheet_to_df(index=0, sheet=county_spread.find_sheet(the_date_year))
+    county_spread_yday = Spread(spread=gsheet_county_link, creds=credentials)
+
+    df_county_yday = county_spread_yday.sheet_to_df(index=0, sheet=county_spread.find_sheet(the_date_year))
     if "update_time" in df_county_yday.columns:  # Oh, so it didn't find it for today, let's grab the one from yesterday
-        df_county_yday = county_spread.sheet_to_df(index=0, sheet=county_spread.find_sheet(the_date_year_yday))
+        df_county_yday = county_spread_yday.sheet_to_df(index=0, sheet=county_spread.find_sheet(the_date_year_yday))
 
     # Now explicitly compare tables to see if they're different
     df_county_yday.set_index("County", inplace=True)
@@ -228,18 +231,23 @@ def the_work():
         county_changed = True
 
     # %% If they were different, let's save them and upload them to sheets
+    print("\nUploading new sheets if changed.")
     if zip_changed:
         df_zip_today.to_csv(idph_csv_folder / ("IDPH Stats Zip %s.csv" % the_date_n_time), index=True)
-        zip_spread.df_to_sheet(df_zip_today, index=False, sheet=the_date_year, start='A1', replace=True)
+        zip_spread.df_to_sheet(df_zip_today, index=True, sheet=the_date_year, start='A1', replace=True)
         print("New Zip was uploaded to Sheets.")
+    else:
+        print("\tZip version was not uploaded.")
 
     if county_changed:
         df_county_today.to_csv(idph_csv_folder / ("IDPH Stats County %s.csv" % the_date_n_time), index=True)
         county_spread.df_to_sheet(df_county_today, index=True, sheet=the_date_year, start='A1', replace=True)
         print("New County was uploaded to Sheets.")
+    else:
+        print("\tCounty version was not uploaded.")
 
     # %% Now deal with production of Nick's Long version
-    print("Producing Zip and County long versions.")
+    print("\nProducing Zip and County long versions.")
 
     if zip_changed:
         df_zip_oldlong = zip_spread.sheet_to_df(index=0, sheet=zip_spread.find_sheet("long"))
@@ -250,8 +258,9 @@ def the_work():
             ["update_date", "update_time", "Zip", "Positive_Cases", "Tested"]].reset_index(drop=True)
         df_zip_newlong.to_csv(idph_csv_folder / ("Long Zip %s.csv" % the_date_n_time), index=False)
         zip_spread.df_to_sheet(df_zip_newlong, index=False, sheet="long", start="A1", replace=True)
-
         print("Zip Long version made and uploaded.")
+    else:
+        print("\tZip version was not uploaded.")
 
     if county_changed:
         df_county_oldlong = county_spread.sheet_to_df(index=0, sheet=county_spread.find_sheet("long"))
@@ -262,9 +271,9 @@ def the_work():
             ["update_date", "update_time", "County", "Positive_Cases", "Deaths", "Tested"]].reset_index(drop=True)
         df_county_newlong.to_csv(idph_csv_folder / ("Long County %s.csv" % the_date_n_time), index=False)
         county_spread.df_to_sheet(df_county_newlong, index=False, sheet="long", start="A1", replace=True)
-
         print("Long editions made and uploaded.")
-
+    else:
+        print("\tCounty version was not uploaded.")
 
     # %%
     driver.close()
@@ -282,6 +291,9 @@ if __name__ == "__main__":
         creds_path = "/home/pi/Git/Credentials/ExProc-Creds.json"
         backup_folder = Path(script_folder / "backup")
         idph_csv_folder = Path(script_folder / "idph_csv")
+
+        if "now" in sys.argv:
+            the_work()
 
         while True:
             minutesToSleep = ((60 - datetime.now().minute) % 30) + 15
@@ -313,7 +325,6 @@ if __name__ == "__main__":
             time.sleep(6 * 60 * 60)
             continue
 
-        the_work()
 
 # After pushing this to the main Git branch, here are the steps:
 # Turn on RPi and get to terminal
