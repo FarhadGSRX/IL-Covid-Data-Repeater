@@ -25,109 +25,109 @@ Cheers, Fg
 
 \<<Begin Report\>>
 
-##### Dates compared: 4/18/2020 and 4/17/2020
+##### Dates compared: 4/19/2020 and 4/18/2020
 
 By County
 
 ```
-             Case_Diff  Death_Diff
-County                            
-Illinois          1585         125
-Chicago            598          64
-Adams                1           0
-Alexander            0           0
-Bond                 0           0
-Boone                8           0
-Bureau               1           0
-Calhoun              0           0
-Carroll              1           0
-Champaign            1           0
-Christian            1           0
-Clark                0           0
-Clay                 0           0
-Clinton              2           0
-Coles                5           0
-Cook               406          36
-Crawford             1           0
-Cumberland           0           0
-DeKalb               8           0
-De Witt              0           0
-Douglas              0           0
-DuPage              82           5
-Effingham            1           0
-Fayette              1           0
-Ford                 1           0
-Franklin             0           0
-Fulton               0           0
-Gallatin             0           0
-Greene               0           0
-Grundy               2           0
-Hamilton             1           0
-Hancock              0           0
-Henderson            1           0
-Henry                2           0
-Iroquois             0           0
-Jackson              2           0
-Jasper               3           0
-Jefferson            1           0
-Jersey               0           0
-Jo Daviess           1           0
-Johnson              0           0
-Kane                44           1
-Kankakee            12           2
-Kendall             12           1
-Knox                 2           0
-Lake               159           4
-LaSalle              0           0
-Lawrence             0           0
-Lee                  0           0
-Livingston          -1           0
-Logan                0           0
-McDonough            0           0
-McHenry             34           4
-McLean               0           0
-Macon                8           2
-Macoupin             4           0
-Madison             12           0
-Marion               2           0
-Marshall             1           0
-Mason                0           0
-Massac               0           0
-Menard               1           0
-Mercer               1           0
-Monroe               0           1
-Montgomery           2           0
-Morgan               0           0
-Moultrie             0           0
-Ogle                 8           0
-Peoria               3           1
-Perry                0           0
-Piatt                0           0
-Pike                 0           0
-Pulaski              4           0
-Randolph             6           0
-Richland             0           0
-Rock Island         20           0
-St. Clair           11           0
-Saline               0           0
-Sangamon             3           0
-Schuyler             0           0
-Shelby               0           0
-Stark                0           0
-Stephenson           2           0
-Tazewell            20           0
-Unassigned          10           2
-Union                1           0
-Vermilion            1           0
-Wabash               0           0
-Warren               2           0
-Washington           1           0
-Wayne                0           0
-Whiteside            5           0
-Will                37           4
-Williamson           0           0
-Winnebago           27           0
-Woodford             0           0
+                          NOFO  Case_Diff  Death_Diff
+County                                               
+Greene                 Central          0           0
+Macon                  Central         -1           0
+Macoupin               Central          0           0
+Menard                 Central          0           0
+Christian              Central          0           0
+Logan                  Central          0           0
+Morgan                 Central          0           0
+Montgomery             Central          1           0
+Sangamon               Central          1           1
+Shelby                 Central          0           0
+Chicago                Chicago        526           1
+Kankakee                Collar          3           0
+Kane                    Collar         23           1
+Lake                    Collar         89           0
+Grundy                  Collar          0           0
+Will                    Collar         40           7
+DuPage                  Collar         53           3
+McHenry                 Collar          0           0
+Kendall                 Collar          0           0
+De Witt                De Witt          0           0
+Illinois              Illinois       1197          31
+McLean           North Central          2           0
+Mason            North Central          0           0
+Peoria           North Central          2           0
+Stark            North Central          0           0
+Tazewell         North Central        -15           0
+Livingston       North Central          0           0
+Marshall         North Central          1           0
+Woodford         North Central          0           0
+Fulton           North Central          0           0
+Douglas      Northeast Central          0           0
+Ford         Northeast Central          0           0
+Champaign    Northeast Central          2           0
+Iroquois     Northeast Central          1           0
+Piatt        Northeast Central          0           0
+Vermilion    Northeast Central          0           0
+Ogle                  Northern          0           0
+Stephenson            Northern          0           0
+DeKalb                Northern          1           0
+Boone                 Northern          1           0
+Winnebago             Northern          6           0
+Bureau               Northwest          0           0
+Rock Island          Northwest          1           0
+Lee                  Northwest          0           0
+Carroll              Northwest          0           0
+Whiteside            Northwest          0           0
+Mercer               Northwest          0           0
+Henry                Northwest          0           0
+LaSalle              Northwest          1           0
+Jo Daviess           Northwest          0           0
+Effingham    Southeast Central          0           0
+Jasper       Southeast Central         13           0
+Richland     Southeast Central          0           0
+Moultrie     Southeast Central          0           0
+Clark        Southeast Central          0           0
+Clay         Southeast Central          0           0
+Marion       Southeast Central          1           0
+Lawrence     Southeast Central          0           0
+Coles        Southeast Central          2           0
+Fayette      Southeast Central          2           0
+Crawford     Southeast Central         -1           0
+Cumberland   Southeast Central          0           0
+Perry                 Southern          0           0
+Franklin              Southern          0           0
+Randolph              Southern          3           0
+Pulaski               Southern          0           0
+Wabash                Southern          0           0
+Jefferson             Southern         19           0
+Alexander             Southern          1           0
+Wayne                 Southern          0           0
+Union                 Southern          0           0
+Johnson               Southern          0           0
+Hamilton              Southern          0           0
+Gallatin              Southern          0           0
+Williamson            Southern          1           0
+Massac                Southern          0           0
+Jackson               Southern          0           0
+Saline                Southern          0           0
+Clinton      Southwest Central          1           0
+Washington   Southwest Central          1           0
+Bond         Southwest Central          0           0
+St. Clair    Southwest Central          6           1
+Madison      Southwest Central         11           1
+Calhoun      Southwest Central          0           0
+Jersey       Southwest Central          0           0
+Monroe       Southwest Central          1           0
+Cook                  Suburban        351          16
+Unassigned          Unassigned         31           0
+Henderson         West Central          0           0
+Schuyler          West Central          0           0
+Hancock           West Central          0           0
+McDonough         West Central          0           0
+Warren            West Central          9           0
+Adams             West Central          3           0
+Knox              West Central          4           0
+Pike              West Central          0           0
 ```
 
 By NOFO Regions
