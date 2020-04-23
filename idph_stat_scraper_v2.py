@@ -167,6 +167,7 @@ def the_work(running_on_RPi=False):
             (daily_totals['deaths'] != int(df_totals_oldlong.iloc[0]['deaths'])) or \
             (daily_totals['total_tests'] != int(df_totals_oldlong.iloc[0]['total_tests'])):
         totals_changed = True
+        print("Totals were detected as changed.")
 
     if totals_changed:
         daily_totals['update_date'] = the_date_YEAR
@@ -279,14 +280,14 @@ def the_work(running_on_RPi=False):
         df_county_today['update_date'] = the_date_YEAR
         df_county_today['update_time'] = the_time
         # Add NOFO Region
-        df_county_today['NOFO_Region'] = df_county_today['County'].map(nofo_map_dict)
-        df_county_today.loc[df_county_today['NOFO_Region'].isna(), "NOFO_Region"] = df_county_today['County'].loc[
+        df_county_today['NOFO_Region'] = df_county_today.index.map(nofo_map_dict)
+        df_county_today.loc[df_county_today['NOFO_Region'].isna(), "NOFO_Region"] = df_county_today.index[
             df_county_today['NOFO_Region'].isna()]
         # Add Metro Area
-        df_county_today['Metro_Area'] = df_county_today['County'].map(metro_map_dict)
-        df_county_today.loc[df_county_today[
-                                'County'] == "Chicago", "Metro_Area"] = 'Chicago'  # Is not mapped on its own in the mapping file.
-        df_county_today.loc[df_county_today['County'] == "Illinois", "Metro_Area"] = 'Illinois'
+        df_county_today['Metro_Area'] = df_county_today.index.map(metro_map_dict)
+        # Chicago and Illinois are not mapped on the Metro mapping file.
+        df_county_today.loc[df_county_today.index == "Chicago", "Metro_Area"] = 'Chicago'
+        df_county_today.loc[df_county_today.index == "Illinois", "Metro_Area"] = 'Illinois'
         # Leaving unlabeled metro areas as Nulls.
 
         df_county_today.reset_index(inplace=True)
@@ -299,12 +300,26 @@ def the_work(running_on_RPi=False):
     else:
         print("\tCounty version was not uploaded.")
 
-    # %% Producing NOFO Region and Metro Area Rollups
-    # dfa.groupby(by=['update_date', 'update_time', 'NOFO_Region']).sum()
-    # dfa_res = dfa.groupby(by=['update_date', 'update_time', 'NOFO_Region']).sum().sort_values(by="update_date", ascending=False)
-    # dfb.groupby(by=['update_date', 'update_time', 'Metro_Area']).sum()
-    # dfb_res.sort_index(axis=0, level=-2, ascending=False, sort_remaining=False)
-    # totals_spread.df_to_sheet(dfb_res, index=True, sheet="Metro_long", start="A1", replace=True)
+    # %% Now producing NOFO Region and Metro Area Rollups directly from County_long and Zip_long directly from gsheets
+    if zip_changed or county_changed:
+        # cln = county_long_now
+        cln = county_spread.sheet_to_df(index=None, sheet=county_spread.find_sheet("long"))
+        # I'm not converting the hourly one because as datetimes it includes the wrong day.
+        (cln.update_date) = pd.to_datetime(cln.update_date)
+        cln.Tested = cln.Tested.apply(lambda x: "0" if x == "" else x)
+        cln.Positive_Cases, cln.Deaths, cln.Tested = cln.Positive_Cases.astype(int), cln.Deaths.astype(
+            int), cln.Tested.astype(int)
+
+        # County data is ready for roll-up and upload to NOFO_long
+        cln_nofo = cln.groupby(by=["update_date", "update_time", "NOFO_Region"]).sum()
+        cln_nofo = cln_nofo.sort_index(axis=0, level=[-1, -3], sort_remaining=False)
+        totals_spread.df_to_sheet(cln_nofo, index=True, sheet="NOFO_long", start="A1", replace=True)
+
+        # County data is ready for roll-up and upload to Metro_long
+        cln_metro = cln.groupby(by=["update_date", "update_time", "Metro_Area"]).sum()
+        cln_metro = cln_metro.sort_index(axis=0, level=[-1, -3], sort_remaining=False)
+        cln_metro = cln_metro.drop(axis=0, labels="", level=-1)
+        totals_spread.df_to_sheet(cln_metro, index=True, sheet="Metro_long", start="A1", replace=True)
 
     # %%
     driver.close()
