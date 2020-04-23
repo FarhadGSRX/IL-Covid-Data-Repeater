@@ -4,28 +4,30 @@
 import bs4
 import pandas as pd
 import time
-import sys
 
 from gspread_pandas import Spread, Client
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime, timedelta
 from pathlib import Path
 
-# Running on my own PC? Or Running headless on the RPi?
-running_RPi = False
+# The reason we have to use selenium is because many pages actually load their html within javascript...
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 
-# Paths
+timeout = 30
+
+# Default Paths
 script_folder = Path("C:/Users/farha/Google Drive/XS/Git/NicksNewsUpdater/")
 creds_path = "C:/Users/farha/Desktop/ExProc-Creds.json"
-backup_folder = Path(script_folder / "backup")
-idph_csv_folder = Path(script_folder / "idph_csv")
 
 output_county_file_name = "IDPH Stats County %s.csv"
 output_zip_file_name = "IDPH Stats Zip %s.csv"
 
 # All Google Auth and worksheet connection
 idph_link = "http://www.dph.illinois.gov/covid19/covid19-statistics"
-
 gsheet_zip_link = "https://docs.google.com/spreadsheets/d/11P36C4z4B2vIXSfgchfAwWfLRnUD0zqg0Ki-MWCiC58/edit#gid=0"
 gsheet_county_link = "https://docs.google.com/spreadsheets/d/1sbLLUOqEv_s2eOh3iQyWRw7JOB8rixfu1oBXgPy8zP8/edit#gid=0"
 gsheet_totals_link = "https://docs.google.com/spreadsheets/d/1MWNebArAjjTTtJdxQcnUakShSbADhccx3xw28L2Nflo/edit#gid=0"
@@ -34,8 +36,19 @@ idph_stats_county_wksht_key = "1sbLLUOqEv_s2eOh3iQyWRw7JOB8rixfu1oBXgPy8zP8"
 idph_stats_totals_wksht_key = "1MWNebArAjjTTtJdxQcnUakShSbADhccx3xw28L2Nflo"
 
 
-def the_work():
+def the_work(running_on_RPi=False):
     # %%
+    if running_on_RPi:
+        script_folder = Path("/home/pi/Git/NicksNewsUpdater/")
+        creds_path = "/home/pi/Git/Credentials/ExProc-Creds.json"
+        backup_folder = Path(script_folder / "backup")
+        idph_csv_folder = Path(script_folder / "idph_csv")
+    else:
+        script_folder = Path("C:/Users/farha/Google Drive/XS/Git/NicksNewsUpdater/")
+        creds_path = "C:/Users/farha/Desktop/ExProc-Creds.json"
+        backup_folder = Path(script_folder / "backup")
+        idph_csv_folder = Path(script_folder / "idph_csv")
+
     # Dates
     the_date = datetime.now().strftime("%m-%d")
     the_date_year_yday = datetime.strftime(datetime.now() - timedelta(1), '%m-%d-%y')
@@ -53,17 +66,9 @@ def the_work():
     totals_spread = Spread(spread=gsheet_totals_link, creds=credentials)
 
     # %%
-    # Webdriver set up
-    # The reason we have to use selenium is because many pages actually load their html within javascript...
-    from selenium import webdriver
-    from selenium.webdriver.common.by import By
-    from selenium.webdriver.support.ui import WebDriverWait
-    from selenium.webdriver.support import expected_conditions as EC
-    from selenium.common.exceptions import TimeoutException
-    timeout = 30
-
+    # Webdriver setup
     options = webdriver.ChromeOptions()
-    if running_RPi:
+    if running_on_RPi:
         options.add_argument('--ignore-certificate-errors')
         options.add_argument('--headless')
         options.add_argument('--disable-gpu')
@@ -73,7 +78,7 @@ def the_work():
         options.add_argument('--ignore-certificate-errors')
         options.add_argument("--test-type")
 
-    driver = webdriver.Chrome(chrome_options=options)
+    driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(300)
 
     # %%
@@ -235,14 +240,14 @@ def the_work():
     if zip_changed:
         df_zip_today.to_csv(idph_csv_folder / ("IDPH Stats Zip %s.csv" % the_date_n_time), index=True)
         zip_spread.df_to_sheet(df_zip_today, index=True, sheet=the_date_year, start='A1', replace=True)
-        print("New Zip was uploaded to Sheets.")
+        print("\tNew Zip was uploaded to Sheets.")
     else:
         print("\tZip version was not uploaded.")
 
     if county_changed:
         df_county_today.to_csv(idph_csv_folder / ("IDPH Stats County %s.csv" % the_date_n_time), index=True)
         county_spread.df_to_sheet(df_county_today, index=True, sheet=the_date_year, start='A1', replace=True)
-        print("New County was uploaded to Sheets.")
+        print("\tNew County was uploaded to Sheets.")
     else:
         print("\tCounty version was not uploaded.")
 
@@ -258,7 +263,7 @@ def the_work():
             ["update_date", "update_time", "Zip", "Positive_Cases", "Tested"]].reset_index(drop=True)
         df_zip_newlong.to_csv(idph_csv_folder / ("Long Zip %s.csv" % the_date_n_time), index=False)
         zip_spread.df_to_sheet(df_zip_newlong, index=False, sheet="long", start="A1", replace=True)
-        print("Zip Long version made and uploaded.")
+        print("\tZip Long version made and uploaded.")
     else:
         print("\tZip version was not uploaded.")
 
@@ -271,7 +276,7 @@ def the_work():
             ["update_date", "update_time", "County", "Positive_Cases", "Deaths", "Tested"]].reset_index(drop=True)
         df_county_newlong.to_csv(idph_csv_folder / ("Long County %s.csv" % the_date_n_time), index=False)
         county_spread.df_to_sheet(df_county_newlong, index=False, sheet="long", start="A1", replace=True)
-        print("Long editions made and uploaded.")
+        print("\tLong editions made and uploaded.")
     else:
         print("\tCounty version was not uploaded.")
 
@@ -279,56 +284,4 @@ def the_work():
     driver.close()
     print("End of " + the_time + " run.")
 
-
-if __name__ == "__main__":
-    print(f"Arguments count: {len(sys.argv)}")
-    for i, arg in enumerate(sys.argv):
-        print(f"Argument {i:>6}: {arg}")
-
-    if "rpi" in sys.argv:
-        running_RPi = True
-        script_folder = Path("/home/pi/Git/NicksNewsUpdater/")
-        creds_path = "/home/pi/Git/Credentials/ExProc-Creds.json"
-        backup_folder = Path(script_folder / "backup")
-        idph_csv_folder = Path(script_folder / "idph_csv")
-
-        if "now" in sys.argv:
-            the_work()
-
-        while True:
-            minutesToSleep = ((60 - datetime.now().minute) % 30) + 15
-            print("Waiting %s minutes before running again." % minutesToSleep)
-            time.sleep(60 * minutesToSleep)
-            the_work()
-    else:
-        the_work()
-
-    while True:  # This while loop only runs while running off PC
-        if datetime.now().hour < 12:  # Noon
-            minutesToSleep = ((11 - datetime.now().hour) * 60) + (59 - datetime.now().minute % 60) + 5
-            print("Waiting to run at 12:05pm.")
-            time.sleep(minutesToSleep * 60)
-
-        elif datetime.now().hour < 17:  # 5pm
-            minutesToSleep = ((16 - datetime.now().hour) * 60) + (59 - datetime.now().minute % 60) + 5
-            print("Waiting to run at 5:05pm.")
-            time.sleep(minutesToSleep * 60)
-
-        elif datetime.now().hour < 21:  # 9pm
-            minutesToSleep = ((20 - datetime.now().hour) * 60) + (59 - datetime.now().minute % 60)
-            print("Waiting to run at 9:05pm.")
-            time.sleep(minutesToSleep * 60)
-
-        else:
-            print("Done for the day.")
-            # Past 9pm, so just wait sleep 6 before relooping hours
-            time.sleep(6 * 60 * 60)
-            continue
-
-
-# After pushing this to the main Git branch, here are the steps:
-# Turn on RPi and get to terminal
-# cd NicksNewsUpdater folder
-# git fetch --all
-# git reset --hard origin/master
-# run it homie --> python3 idph_stats_scraper.py rpi
+    return zip_changed or county_changed
