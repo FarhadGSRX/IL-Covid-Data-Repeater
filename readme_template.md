@@ -23,17 +23,24 @@ Cheers, Fg
 ##### Date Comparison: {today_date} and {yday_date}
 ###### (The numbers below are not absolute values. They are the direct result of subtracting values yesterdy's values from today's values. Ie, a positive number indicates a growth in count.)
 
+By NOFO Regions
+
+```
+{NOFO_Report}
+```
+
+By Metro Areas
+```
+{Metro_Report}
+```
+
 By County
 
 ```
 {County_Report}
 ```
 
-By NOFO Regions
 
-```
-{NOFO_Report}
-```
 
 
 ### Notes:
