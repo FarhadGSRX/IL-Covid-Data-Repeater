@@ -35,6 +35,7 @@ def the_work(running_on_RPi=False):
         idph_csv_folder = Path(script_folder / "idph_csv")
         geo_folder = Path(script_folder / "geo_data")
     else:
+        script_folder = Path("C:/Users/farha/Google Drive/XS/Git/NicksNewsUpdater/")
         backup_folder = Path(script_folder / "backup")
         idph_csv_folder = Path(script_folder / "idph_csv")
         geo_folder = Path(script_folder / "geo_data")
@@ -91,7 +92,8 @@ def the_work(running_on_RPi=False):
 
     with open(script_folder / "readme_template.md", "r") as rm_tmp:
         template = rm_tmp.read()
-        new_readme = template.format(today_date=the_date_year,
+        new_readme = template.format(today_date_n_time=the_date_n_time,
+                                     today_date=the_date_year,
                                      yday_date=the_date_year_yday,
                                      County_Report=county_report,
                                      NOFO_Report=nofo_report)

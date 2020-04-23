@@ -19,7 +19,7 @@ Please remember: These are all _raw_ numbers from the IDPH Website.
 
 Cheers, Fg
 
-## Most Recent Report ({today_date})
+## Most Recent Report ({today_date_n_time})
 ##### Date Comparison: {today_date} and {yday_date}
 ###### (The numbers below are not absolute values. They are the direct result of subtracting values yesterdy's values from today's values. Ie, a positive number indicates a growth in count.)
 
