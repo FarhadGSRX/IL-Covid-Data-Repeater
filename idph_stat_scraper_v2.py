@@ -43,11 +43,14 @@ def the_work(running_on_RPi=False):
         creds_path = "/home/pi/Git/Credentials/ExProc-Creds.json"
         backup_folder = Path(script_folder / "backup")
         idph_csv_folder = Path(script_folder / "idph_csv")
+        geo_folder = Path(script_folder / "geo_data")
+
     else:
         script_folder = Path("C:/Users/farha/Google Drive/XS/Git/NicksNewsUpdater/")
         creds_path = "C:/Users/farha/Desktop/ExProc-Creds.json"
         backup_folder = Path(script_folder / "backup")
         idph_csv_folder = Path(script_folder / "idph_csv")
+        geo_folder = Path(script_folder / "geo_data")
 
     # Dates
     the_date = datetime.now().strftime("%m-%d")
@@ -175,7 +178,7 @@ def the_work(running_on_RPi=False):
         df_totals_newlong = df_totals_today.append(df_totals_oldlong)[
             ["update_date", "tests_pos", "deaths", "total_tests", "tests_neg", "new_tests"]].reset_index(drop=True)
         df_totals_newlong.to_csv(idph_csv_folder / ("Long Totals %s.csv" % the_date_n_time), index=False)
-        totals_spread.df_to_sheet(df_totals_newlong, index=False, sheet="long", start="A1", replace=True)
+        totals_spread.df_to_sheet(df_totals_newlong, index=False, sheet="IL_long", start="A1", replace=True)
 
     # %% Assertions Zip - Does the table look as expected?
     assert df_zip_today.index[0] <= "60002"  # First zip code in Illinois
@@ -222,7 +225,6 @@ def the_work(running_on_RPi=False):
 
     # Assume the sheet has already been updated for the day, try grabbing and comparing with that first.
     county_spread_yday = Spread(spread=gsheet_county_link, creds=credentials)
-
     df_county_yday = county_spread_yday.sheet_to_df(index=0, sheet=county_spread.find_sheet(the_date_year))
     if "update_time" in df_county_yday.columns:  # Oh, so it didn't find it for today, let's grab the one from yesterday
         df_county_yday = county_spread_yday.sheet_to_df(index=0, sheet=county_spread.find_sheet(the_date_year_yday))
@@ -251,8 +253,13 @@ def the_work(running_on_RPi=False):
     else:
         print("\tCounty version was not uploaded.")
 
-    # %% Now deal with production of Nick's Long version
+    # %% Now deal with production of Long version
     print("\nProducing Zip and County long versions.")
+
+    # Bring in mapping tools
+    census_df = pd.read_csv(geo_folder / "Illinois_Census_200414_1816.csv")
+    nofo_map_dict = dict(zip(census_df.CountyName, census_df.NOFO_Region))
+    metro_map_dict = dict(zip(census_df.CountyName, census_df.Metro_area))
 
     if zip_changed:
         df_zip_oldlong = zip_spread.sheet_to_df(index=0, sheet=zip_spread.find_sheet("long"))
@@ -271,14 +278,33 @@ def the_work(running_on_RPi=False):
         df_county_oldlong = county_spread.sheet_to_df(index=0, sheet=county_spread.find_sheet("long"))
         df_county_today['update_date'] = the_date_YEAR
         df_county_today['update_time'] = the_time
+        # Add NOFO Region
+        df_county_today['NOFO_Region'] = df_county_today['County'].map(nofo_map_dict)
+        df_county_today.loc[df_county_today['NOFO_Region'].isna(), "NOFO_Region"] = df_county_today['County'].loc[
+            df_county_today['NOFO_Region'].isna()]
+        # Add Metro Area
+        df_county_today['Metro_Area'] = df_county_today['County'].map(metro_map_dict)
+        df_county_today.loc[df_county_today[
+                                'County'] == "Chicago", "Metro_Area"] = 'Chicago'  # Is not mapped on its own in the mapping file.
+        df_county_today.loc[df_county_today['County'] == "Illinois", "Metro_Area"] = 'Illinois'
+        # Leaving unlabeled metro areas as Nulls.
+
         df_county_today.reset_index(inplace=True)
         df_county_newlong = df_county_today.append(df_county_oldlong)[
-            ["update_date", "update_time", "County", "Positive_Cases", "Deaths", "Tested"]].reset_index(drop=True)
+            ["update_date", "update_time", "County", "Positive_Cases", "Deaths", "Tested", "NOFO_Region",
+             "Metro_Area"]].reset_index(drop=True)
         df_county_newlong.to_csv(idph_csv_folder / ("Long County %s.csv" % the_date_n_time), index=False)
         county_spread.df_to_sheet(df_county_newlong, index=False, sheet="long", start="A1", replace=True)
         print("\tLong editions made and uploaded.")
     else:
         print("\tCounty version was not uploaded.")
+
+    # %% Producing NOFO Region and Metro Area Rollups
+    # dfa.groupby(by=['update_date', 'update_time', 'NOFO_Region']).sum()
+    # dfa_res = dfa.groupby(by=['update_date', 'update_time', 'NOFO_Region']).sum().sort_values(by="update_date", ascending=False)
+    # dfb.groupby(by=['update_date', 'update_time', 'Metro_Area']).sum()
+    # dfb_res.sort_index(axis=0, level=-2, ascending=False, sort_remaining=False)
+    # totals_spread.df_to_sheet(dfb_res, index=True, sheet="Metro_long", start="A1", replace=True)
 
     # %%
     driver.close()

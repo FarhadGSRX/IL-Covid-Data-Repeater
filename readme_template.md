@@ -1,13 +1,13 @@
-# Nick's News Updater
+# Illinois Covid-19 Data Repeater
 
 Hello and welcome Illinois Covid-19 Researchers and Responders!
 
-To facilitate your raw data needs, I am continually scraping and updating these google sheets with the numbers from the ILDPH Statistics front page.
-The scraper automatically runs twice an hour at the 0015 and 0045 times. The sheets (linked below) only update when there are new results from ILDPH.
+To facilitate your raw data needs, I am continually scraping and updating these google sheets with the numbers from the IDPH Statistics front page.
+The scraper automatically runs twice an hour at the 0015 and 0045 times. The sheets (linked below) only update when there are new results from IDPH.
 There are few hard data checks in place as the data is quite labile day to day, but size and shape of the data set are always ensured. 
 (I am also manually checking everyday, at least through May.)
 
-Please distribute as far and wide as you'd like!
+Please distribute freely.
 
 [Illinois Totals Tracker](https://drive.google.com/open?id=1MWNebArAjjTTtJdxQcnUakShSbADhccx3xw28L2Nflo)
 
@@ -21,7 +21,7 @@ Cheers, Fg
 
 ## Most Recent Report ({today_date_n_time})
 ##### Date Comparison: {today_date} and {yday_date}
-###### (The numbers below are not absolute values. They are the direct result of subtracting values yesterdy's values from today's values. Ie, a positive number indicates a growth in count.)
+###### (The numbers below are not absolute values. They are the direct result of subtracting yesterdy's values from today's values. Ie, a positive number indicates a growth in count.)
 
 By NOFO Regions
 

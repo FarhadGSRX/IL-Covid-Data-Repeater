@@ -73,27 +73,50 @@ def the_work(running_on_RPi=False):
     #    df_county_today[col] = pd.to_datetime(df_county_today[col])
     #    df_county_yday[col] = pd.to_datetime(df_county_yday[col])
 
+    # Calculate difference columns
     df_merge = df_county_today.merge(df_county_yday, how="left", left_index=True, right_index=True)
     df_merge.fillna(0, inplace=True)
-    df_merge['Case_Diff'] = df_merge['Positive_Cases_x'].astype(int) - df_merge['Positive_Cases_y'].astype(int)
-    df_merge['Death_Diff'] = df_merge['Deaths_x'].astype(int) - df_merge['Deaths_y'].astype(int)
+    df_merge = df_merge.astype(int)
+    df_merge['Tests_Diff'] = df_merge['Tested_x'] - df_merge['Tested_y']
+    df_merge['Case_Diff'] = df_merge['Positive_Cases_x'] - df_merge['Positive_Cases_y']
+    df_merge['Death_Diff'] = df_merge['Deaths_x'] - df_merge['Deaths_y']
+    # Drop unneeded _y columns, rename _x columns into "Totals" Columns
+    df_merge.drop(columns=['Positive_Cases_y', 'Deaths_y', 'Tested_y'], inplace=True)
+    df_merge.rename(columns={'Tested_x': 'Total Tested', 'Positive_Cases_x': 'Total Cases', 'Deaths_x': 'Total Deaths'},
+                    inplace=True)
+    df_merge = df_merge[['Tests_Diff', 'Case_Diff', 'Death_Diff', 'Total Tested', 'Total Cases', 'Total Deaths']]
+    # Fyi, there was a lot of trouble dealing with multiindex here. Don't do it on df_merge, do it individually below
 
-    df_merge['NOFO'] = df_merge.index.map(nofo_map_dict)
-    df_merge.loc[df_merge.NOFO.isna(), "NOFO"] = df_merge.index[df_merge.NOFO.isna()]
+    # Merge NOFO Regions into df_merge
+    df_merge['NOFO Region'] = df_merge.index.map(nofo_map_dict)
+    df_merge.loc[df_merge['NOFO Region'].isna(), "NOFO Region"] = df_merge.index[df_merge['NOFO Region'].isna()]
 
-    df_merge['Metro'] = df_merge.index.map(metro_map_dict)
+    # Merge Metro Areas into df_merge
+    df_merge['Metro Area'] = df_merge.index.map(metro_map_dict)
+    df_merge.loc['Chicago', 'Metro Area'] = 'Chicago'  # Is not mapped on its own in the mapping file.
+    df_merge.loc['Illinois', 'Metro Area'] = 'Illinois'
 
     # Differences by County
-    county_report = df_merge.sort_values(by="NOFO", ascending=True)[['NOFO', 'Case_Diff', 'Death_Diff']].to_string()
-    print(county_report)
+    county_report = df_merge.copy()
+    county_report.columns = pd.MultiIndex.from_tuples(
+        [('Daily Difference', 'Tests'), ('Daily Difference', 'Cases'), ('Daily Difference', 'Deaths'),
+         ('Totals to Date', 'Tests'), ('Totals to Date', 'Cases'), ('Totals to Date', 'Deaths'),
+         ('Region', 'NOFO Region'), ('Region', 'Metro Area')])
+    county_report_out = county_report.iloc[:, 0:9].to_string()
+    print(county_report_out)
 
     # Differences by NOFO Region
-    nofo_report = df_merge.groupby(by="NOFO").agg("sum")[['Case_Diff', 'Death_Diff']].to_string()
-    print(nofo_report)
+    nofo_report = df_merge.copy().groupby(by="NOFO Region").sum()
+    nofo_report.columns = pd.MultiIndex.from_product(
+        [['Daily Difference', 'Totals to Date'], ['Tests', 'Cases', 'Deaths']])
+    nofo_report_out = nofo_report.to_string()
+    print(nofo_report_out)
 
     # Differences by Metro Area
-    metro_report = df_merge.dropna(axis=0, subset=["Metro"]).groupby(by="Metro").agg("sum")[
-        ['Case_Diff', 'Death_Diff']].to_string()
+    metro_report = df_merge.copy().groupby(by="Metro Area").agg("sum")
+    metro_report.columns = pd.MultiIndex.from_product(
+        [['Daily Difference', 'Totals to Date'], ['Tests', 'Cases', 'Deaths']])
+    metro_report_out = metro_report.to_string()
     print(metro_report)
 
     with open(script_folder / "readme_template.md", "r") as rm_tmp:
