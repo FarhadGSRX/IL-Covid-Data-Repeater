@@ -19,115 +19,9 @@ Please remember: These are all _raw_ numbers from the IDPH Website.
 
 Cheers, Fg
 
-## Most Recent Report - 04-22-20
+## Most Recent Report (04-22-2351)
 ##### Date Comparison: 04-22-20 and 04-21-20
 ###### (The numbers below are not absolute values. They are the direct result of subtracting values yesterdy's values from today's values. Ie, a positive number indicates a growth in count.)
-
-By County
-
-```
-                          NOFO  Case_Diff  Death_Diff
-County                                               
-Greene                 Central          1           0
-Macon                  Central         33           1
-Macoupin               Central          2           0
-Menard                 Central          1           0
-Christian              Central          0           0
-Logan                  Central          0           0
-Cass                   Central          1           0
-Morgan                 Central          1           0
-Montgomery             Central          4           0
-Sangamon               Central          1           0
-Shelby                 Central          0           0
-Chicago                Chicago        840          35
-Kankakee                Collar          7           1
-Kane                    Collar         80           4
-Lake                    Collar         92           2
-Grundy                  Collar          0           0
-Will                    Collar         84           5
-DuPage                  Collar         83           5
-McHenry                 Collar         31           2
-Kendall                 Collar         11           1
-De Witt                De Witt          0           0
-Illinois              Illinois       2049          97
-LaSalle                LaSalle          5           0
-McLean           North Central          0           0
-Mason            North Central          1           0
-Peoria           North Central          2           0
-Stark            North Central          0           0
-Tazewell         North Central         -5           0
-Livingston       North Central          0           0
-Marshall         North Central          0           0
-Woodford         North Central          0           0
-Fulton           North Central          0           0
-Vermilion    Northeast Central          0           0
-Douglas      Northeast Central          0           0
-Iroquois     Northeast Central          0           0
-Champaign    Northeast Central          0           0
-Piatt        Northeast Central          0           0
-Ford         Northeast Central          0           0
-DeKalb                Northern          0           0
-Stephenson            Northern          0           0
-Boone                 Northern          6           0
-Winnebago             Northern         31           0
-Ogle                  Northern         12           0
-Lee                  Northwest          1           0
-Carroll              Northwest          0           0
-Mercer               Northwest          0           0
-Jo Daviess           Northwest          0           0
-Rock Island          Northwest         25           1
-Bureau               Northwest          0           0
-Henry                Northwest          1           0
-Whiteside            Northwest          3           0
-Moultrie     Southeast Central          0           0
-Richland     Southeast Central          0           0
-Clark        Southeast Central          0           0
-Clay         Southeast Central          1           0
-Marion       Southeast Central         -1           0
-Coles        Southeast Central          1           0
-Lawrence     Southeast Central          0           0
-Crawford     Southeast Central          1           0
-Jasper       Southeast Central          0           0
-Cumberland   Southeast Central          0           0
-Effingham    Southeast Central          0           0
-Fayette      Southeast Central          0           0
-Hamilton              Southern          0           0
-Saline                Southern          0           0
-Alexander             Southern          0           0
-Jefferson             Southern         41           1
-Union                 Southern          0           0
-Randolph              Southern          2           0
-Pulaski               Southern          2           0
-Hardin                Southern          0           0
-Johnson               Southern          1           0
-Wabash                Southern          0           0
-Franklin              Southern          2           0
-Wayne                 Southern          0           0
-Gallatin              Southern          0           0
-White                 Southern          0           0
-Massac                Southern          0           0
-Williamson            Southern          1           0
-Perry                 Southern          1           0
-Jackson               Southern          2           0
-Bond         Southwest Central          0           0
-Washington   Southwest Central          0           0
-Madison      Southwest Central         36           3
-Jersey       Southwest Central          0           0
-Calhoun      Southwest Central          0           0
-Monroe       Southwest Central          3           1
-Clinton      Southwest Central          3           0
-St. Clair    Southwest Central         27           1
-Cook                  Suburban        525          35
-Unassigned          Unassigned         36          -1
-Henderson         West Central          0           0
-Pike              West Central          0           0
-Warren            West Central          4           0
-Knox              West Central          5           0
-McDonough         West Central          1           0
-Hancock           West Central          0           0
-Adams             West Central          0           0
-Schuyler          West Central          0           0
-```
 
 By NOFO Regions
 
@@ -137,7 +31,6 @@ NOFO
 Central                   44           1
 Chicago                  840          35
 Collar                   388          20
-De Witt                    0           0
 Illinois                2049          97
 LaSalle                    5           0
 North Central             -2           0
@@ -151,6 +44,135 @@ Suburban                 525          35
 Unassigned                36          -1
 West Central              10           0
 ```
+
+By Metro Areas
+```
+                   Case_Diff  Death_Diff
+Metro                                   
+Bloomington                0           0
+Cape_Girardeau             0           0
+Carbondale-Marion          3           0
+Champaign-Urbana           0           0
+Chicago                  734          48
+Danville                   0           0
+Davenport                 26           1
+Decatur                   33           1
+Elgin                     80           4
+Kankakee                   7           1
+Lake                      92           2
+Peoria                    -3           0
+Rockford                  37           0
+Springfield                2           0
+St_Louis                  71           5
+```
+
+By County
+
+```
+                          NOFO  Case_Diff  Death_Diff
+County                                               
+Greene                 Central          1           0
+Macon                  Central         33           1
+Macoupin               Central          2           0
+Menard                 Central          1           0
+Christian              Central          0           0
+Montgomery             Central          4           0
+Morgan                 Central          1           0
+Cass                   Central          1           0
+Sangamon               Central          1           0
+Shelby                 Central          0           0
+Logan                  Central          0           0
+Chicago                Chicago        840          35
+McHenry                 Collar         31           2
+Kankakee                Collar          7           1
+Kane                    Collar         80           4
+Lake                    Collar         92           2
+Grundy                  Collar          0           0
+Will                    Collar         84           5
+DuPage                  Collar         83           5
+Kendall                 Collar         11           1
+Illinois              Illinois       2049          97
+LaSalle                LaSalle          5           0
+McLean           North Central          0           0
+Mason            North Central          1           0
+Peoria           North Central          2           0
+Stark            North Central          0           0
+Tazewell         North Central         -5           0
+Livingston       North Central          0           0
+Marshall         North Central          0           0
+Woodford         North Central          0           0
+Fulton           North Central          0           0
+De Witt          North Central          0           0
+Ford         Northeast Central          0           0
+Champaign    Northeast Central          0           0
+Iroquois     Northeast Central          0           0
+Piatt        Northeast Central          0           0
+Vermilion    Northeast Central          0           0
+Douglas      Northeast Central          0           0
+Boone                 Northern          6           0
+Winnebago             Northern         31           0
+Ogle                  Northern         12           0
+Stephenson            Northern          0           0
+DeKalb                Northern          0           0
+Rock Island          Northwest         25           1
+Carroll              Northwest          0           0
+Whiteside            Northwest          3           0
+Lee                  Northwest          1           0
+Bureau               Northwest          0           0
+Mercer               Northwest          0           0
+Jo Daviess           Northwest          0           0
+Henry                Northwest          1           0
+Lawrence     Southeast Central          0           0
+Clark        Southeast Central          0           0
+Jasper       Southeast Central          0           0
+Clay         Southeast Central          1           0
+Effingham    Southeast Central          0           0
+Marion       Southeast Central         -1           0
+Moultrie     Southeast Central          0           0
+Crawford     Southeast Central          1           0
+Cumberland   Southeast Central          0           0
+Richland     Southeast Central          0           0
+Fayette      Southeast Central          0           0
+Coles        Southeast Central          1           0
+Wayne                 Southern          0           0
+Randolph              Southern          2           0
+Jackson               Southern          2           0
+Perry                 Southern          1           0
+Saline                Southern          0           0
+Pulaski               Southern          2           0
+Alexander             Southern          0           0
+Hardin                Southern          0           0
+Gallatin              Southern          0           0
+Massac                Southern          0           0
+Union                 Southern          0           0
+White                 Southern          0           0
+Wabash                Southern          0           0
+Williamson            Southern          1           0
+Johnson               Southern          1           0
+Franklin              Southern          2           0
+Jefferson             Southern         41           1
+Hamilton              Southern          0           0
+Bond         Southwest Central          0           0
+Calhoun      Southwest Central          0           0
+St. Clair    Southwest Central         27           1
+Jersey       Southwest Central          0           0
+Monroe       Southwest Central          3           1
+Clinton      Southwest Central          3           0
+Madison      Southwest Central         36           3
+Washington   Southwest Central          0           0
+Cook                  Suburban        525          35
+Unassigned          Unassigned         36          -1
+Adams             West Central          0           0
+Knox              West Central          5           0
+Hancock           West Central          0           0
+Henderson         West Central          0           0
+Schuyler          West Central          0           0
+McDonough         West Central          1           0
+Warren            West Central          4           0
+Pike              West Central          0           0
+```
+
+
 
 
 ### Notes:
