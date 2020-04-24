@@ -5,7 +5,7 @@ from datetime import datetime
 def the_work():
     the_date_n_time = datetime.now().strftime("%m-%d-%H%M")
 
-    cp = cmd.run("cd /Git/NicksNewsUpdater/", check=True, shell=True)
+    cp = cmd.run("cd /home/pi/Git/NicksNewsUpdater/", check=True, shell=True)
     print(cp)
 
     cp = cmd.run("git add .", check=True, shell=True)
