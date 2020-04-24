@@ -19,7 +19,7 @@ Please remember: These are all _raw_ numbers from the IDPH Website.
 
 Cheers, Fg
 
-## Most Recent Report (04-24-1446)
+## Most Recent Report (04-24-1526)
 ##### Date Comparison: 04-24-20 and 04-23-20
 ###### (The numbers below are not absolute values. They are the direct result of subtracting yesterdy's values from today's values. Ie, a positive number indicates a growth in count.)
 
@@ -32,7 +32,7 @@ NOFO Region
 Central                          0    27      1              0    307     22
 Chicago                          0  1039     37              0  16112    678
 Collar                           0   642     21              0   8882    447
-Illinois                     12903  2724    107         186219  39658   1795
+Illinois                     16316  2724    107         189632  39658   1795
 North Central                    0     8      0              0    221     10
 Northeast Central                0     4      0              0    154      6
 Northern                         0    49      1              0    495     17
@@ -59,7 +59,7 @@ Danville                         0     1      0              0     11      0
 Davenport                        0    27      0              0    313      6
 Decatur                          0     3      0              0     99     10
 Elgin                            0   111      0              0   1030     40
-Illinois                     12903  2724    107         186219  39658   1795
+Illinois                     16316  2724    107         189632  39658   1795
 Kankakee                         0     8      2              0    297     21
 Lake                             0   177      5              0   2717    105
 Peoria                           0     6      0              0    106      6
@@ -74,7 +74,7 @@ By County
             Daily Difference              Totals to Date                \
                        Tests Cases Deaths          Tests  Cases Deaths   
 County                                                                   
-Illinois               12903  2724    107         186219  39658   1795   
+Illinois               16316  2724    107         189632  39658   1795   
 Chicago                    0  1039     37              0  16112    678   
 Adams                      0     3      0              0     32      0   
 Alexander                  0     0      0              0      2      0   
