@@ -1,7 +1,13 @@
 import subprocess as cmd
 from datetime import datetime
 
-
+# To get the beelow command to work without having to manually type in my Git Username and Pass
+# All I had to do was enter the following codes in command line:
+# > git config credential.helper store
+# > git push .....
+# > Username: <type it>
+# > Password: <type it>
+# Then next time it runs, it will reload credentials from wherever it auto-stored them
 def the_work():
     the_date_n_time = datetime.now().strftime("%m-%d-%H%M")
 
