@@ -124,11 +124,11 @@ def the_work(running_on_RPi=False):
     # %%
     zip_table_headers = zip_table_soup.find_all("th")
     zip_table_headers_arr = [x.get_text() for x in zip_table_headers]
-    assert zip_table_headers_arr == ['Zip', 'Positive Cases', 'Deaths', 'Tested']
+    assert zip_table_headers_arr == ['Zip', 'Tested', 'Positive Cases', 'Deaths']
 
     county_table_headers = county_table_soup.find_all("th")
     county_table_headers_arr = [x.get_text() for x in county_table_headers]
-    assert county_table_headers_arr == ['County', 'Positive Cases', 'Deaths', 'Tested']
+    assert county_table_headers_arr == ['County', 'Tested', 'Positive Cases', 'Deaths']
 
     print("Zip first:")
     print(zip_table_soup.find_all("tr")[1:])
@@ -140,14 +140,14 @@ def the_work(running_on_RPi=False):
     for tr in zip_table_soup.find_all('tr')[1:]:
         tds = tr.find_all('td')
         df_zip_today = df_zip_today.append(
-            {'Zip': tds[0].text, 'Positive Cases': tds[1].text, 'Deaths': tds[2].text, 'Tested': tds[3].text},
+            {'Zip': tds[0].text, 'Tested': tds[1].text, 'Positive Cases': tds[2].text, 'Deaths': tds[3].text},
             ignore_index=True)
 
     df_county_today = pd.DataFrame(columns=county_table_headers_arr)
     for tr in county_table_soup.find_all('tr')[1:]:
         tds = tr.find_all('td')
         df_county_today = df_county_today.append(
-            {'County': tds[0].text, 'Positive Cases': tds[1].text, 'Deaths': tds[2].text, 'Tested': tds[3].text},
+            {'County': tds[0].text, 'Tested': tds[1].text, 'Positive Cases': tds[2].text, 'Deaths': tds[3].text},
             ignore_index=True)
 
     df_zip_today.set_index("Zip", inplace=True)
