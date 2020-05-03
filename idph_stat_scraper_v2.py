@@ -36,7 +36,6 @@ idph_stats_zip_wksht_key = "11P36C4z4B2vIXSfgchfAwWfLRnUD0zqg0Ki-MWCiC58"
 idph_stats_county_wksht_key = "1sbLLUOqEv_s2eOh3iQyWRw7JOB8rixfu1oBXgPy8zP8"
 idph_stats_totals_wksht_key = "1MWNebArAjjTTtJdxQcnUakShSbADhccx3xw28L2Nflo"
 
-totals_spread, zip_spread, county_spread = None
 
 def the_work(running_on_RPi=False):
     # %%
@@ -66,6 +65,7 @@ def the_work(running_on_RPi=False):
     credentials = ServiceAccountCredentials.from_json_keyfile_name(creds_path)
     # If you copy this, make sure the file you are opening is accessible to your service account
     # Ie. Give Sharing/Edit access to ExProc (gdrive-user@exproc.iam.gserviceaccount.com)
+    totals_spread, zip_spread, county_spread = None, None, None
     while not (zip_spread and county_spread and totals_spread):
         try:
             if not zip_spread:
