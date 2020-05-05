@@ -4,6 +4,7 @@
 import bs4
 import gspread
 import pandas as pd
+import requests
 import time
 
 from gspread_pandas import Spread, Client
@@ -75,6 +76,12 @@ def the_work(running_on_RPi=False):
             if not totals_spread:
                 totals_spread = Spread(spread=gsheet_totals_link, creds=credentials)
         except gspread.exceptions.APIError:
+            print("gspread API Error occurred")
+            time.sleep(5)
+            continue
+        except requests.exceptions.ReadTimeout:
+            print("requests ReadTimeout occurred")
+            time.sleep(5)
             continue
 
     # %%
