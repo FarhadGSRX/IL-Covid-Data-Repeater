@@ -1,11 +1,10 @@
 # Illinois Covid-19 Data Repeater
 
-Hello and welcome Illinois Covid-19 Researchers and Responders!
+Hello Illinois Covid-19 Researchers and Responders,
 
 To facilitate your raw data needs, I am continually scraping and updating these google sheets with the numbers from the IDPH Statistics front page.
 The scraper automatically runs twice an hour at the 0015 and 0045 times. The sheets (linked below) only update when there are new results from IDPH.
-There are few hard data checks in place as the data is quite labile day to day, but size and shape of the data set are always ensured. 
-(I am also manually checking everyday, at least through May.)
+These are all _raw_ numbers from the IDPH Website. I manually check the page and data everyday to ensure accuracy of my records (at least through May).
 
 Please distribute freely.
 
@@ -15,13 +14,13 @@ Please distribute freely.
 
 [Illinois Stats by County](https://drive.google.com/open?id=1sbLLUOqEv_s2eOh3iQyWRw7JOB8rixfu1oBXgPy8zP8)
 
-Please remember: These are all _raw_ numbers from the IDPH Website.
+[Illinois Counties Covid-19 News Compiler](https://docs.google.com/spreadsheets/d/1Ik_Cyiv5Be4Cx-mCAf9jjNf1t4MVTmxqQeNesJjXhWY/)
 
 Cheers, Fg
 
 ## Most Recent Report ({today_date_n_time})
 ##### Date Comparison: {today_date} and {yday_date}
-###### (The numbers below are not absolute values. They are the direct result of subtracting yesterdy's values from today's values. Ie, a positive number indicates a growth in count.)
+###### (The numbers below are not absolute values. They are the direct result of subtracting yesterday's values from today's values. Ie, a positive number indicates a growth in count.)
 
 By NOFO Regions
 
@@ -46,3 +45,5 @@ By County
 ### Notes:
 On 4/18/2020, IDPH began to add a column for "Total Tested", the numbers for which on the first day are inconsistent with future uploads.
 I have personally investigated my webscraper logs and have confirmed that this error was never corrected that day, but the numbers normalized the following day.
+
+On 5/3/2020, I began scraping Google News to get a handle on the local news in our counties. That spreadsheet is also linked above.
