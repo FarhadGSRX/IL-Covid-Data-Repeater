@@ -5,10 +5,12 @@ Python 3.7, see requirements.txt
 For git credentials, from the command line:
 ```shell script
 git config credential.helper store
-git push .....
+git push ..... (or another command)
 Username: <type it>
 Password: <type it>
 ```
+
+
 
 # Command Line Options
 
