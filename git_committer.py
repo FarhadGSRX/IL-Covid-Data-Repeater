@@ -1,28 +1,19 @@
 import subprocess as cmd
 from datetime import datetime
 
-# To get the beelow command to work without having to manually type in my Git Username and Pass
-# All I had to do was enter the following codes in command line:
-# > git config credential.helper store
-# > git push .....
-# > Username: <type it>
-# > Password: <type it>
-# Then next time it runs, it will reload credentials from wherever it auto-stored them
-def the_work():
+'''Assumes git credentials are stored'''
+
+def the_work(script_folder, **kwargs):
     the_date_n_time = datetime.now().strftime("%m-%d-%H%M")
 
-    cp = cmd.run("cd /home/pi/Git/NicksNewsUpdater/", check=True, shell=True)
+    print("Running: cd %s".format(script_folder))
+    cp = cmd.run("cd %s".format(script_folder), check=True, shell=True)
     print(cp)
 
     cp = cmd.run("git add .", check=True, shell=True)
     print(cp)
 
-
-    # response = input("Do you want to use the default message for this commit?([y]/n)\n")
     message = "Automatic Update (%s)" % the_date_n_time
-
-    # if response.startswith('n'):
-    #    message = input("What message you want?\n")
 
     cp = cmd.run(f"git commit -m '{message}'", check=True, shell=True)
     cp = cmd.run("git push -u origin master -f", check=True, shell=True)

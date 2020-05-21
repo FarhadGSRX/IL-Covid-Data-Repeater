@@ -26,7 +26,7 @@ idph_stats_county_wksht_key = "1sbLLUOqEv_s2eOh3iQyWRw7JOB8rixfu1oBXgPy8zP8"
 idph_stats_totals_wksht_key = "1MWNebArAjjTTtJdxQcnUakShSbADhccx3xw28L2Nflo"
 
 
-def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_options, chrome_path='chromedriver'):
+def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_options, chrome_path='chromedriver', **kwargs):
     # Dates
     the_date = datetime.now().strftime("%m-%d")
     the_date_year_yday = datetime.strftime(datetime.now() - timedelta(1), '%m-%d-%y')
@@ -35,7 +35,6 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
     the_date_n_time = datetime.now().strftime("%m-%d-%H%M")
     the_time = datetime.now().strftime("%H:%M")
 
-    # scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
     credentials = ServiceAccountCredentials.from_json_keyfile_name(creds_path)
     # If you copy this, make sure the file you are opening is accessible to your service account
     # Ie. Give Sharing/Edit access to ExProc (gdrive-user@exproc.iam.gserviceaccount.com)
@@ -48,7 +47,8 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
                 county_spread = Spread(spread=gsheet_county_link, creds=credentials)
             if not totals_spread:
                 totals_spread = Spread(spread=gsheet_totals_link, creds=credentials)
-        except gspread.exceptions.APIError:
+        except gspread.exceptions.APIError as e:
+            print(e)
             print("gspread API Error occurred")
             time.sleep(5)
             continue
@@ -57,7 +57,8 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
             time.sleep(5)
             continue
 
-    driver = webdriver.Chrome(options=chrome_options)  # Chrome options are passed into function
+    driver = webdriver.Chrome(executable_path=chrome_path,
+                              options=chrome_options)  # Chrome options are passed into function
     driver.implicitly_wait(300)
 
     # %%

@@ -1,4 +1,18 @@
+# Setup
+
+Python 3.7, see requirements.txt
+
+For git credentials, from the command line:
+```shell script
+git config credential.helper store
+git push .....
+Username: <type it>
+Password: <type it>
+```
+
 # Command Line Options
+
+* `--reportonly`: just run the report and git commands, don't collect anything
 
 Legacy options to fit Farhad's workflow
 * `--rpi`: running on Farhad's raspberry pi? sets vars appropriately
@@ -23,5 +37,5 @@ python3 main.py --rpi --notnow --future
 # Running elsewhere
 
 ```shell script
-python main.py
+python3 main.py
 ```

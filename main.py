@@ -1,4 +1,5 @@
 import time
+import sys
 import argparse
 from pathlib import Path
 from datetime import datetime
@@ -11,18 +12,18 @@ import report_maker
 import git_committer
 
 
-def launch_stat_scraper(running_on_RPi=False):
+def launch_stat_scraper(chrome_options, config):
     print("\nLaunching IDPH Stat Scraper")
-    things_changed = idph_stat_scraper.the_work(running_on_RPi)
+    things_changed = idph_stat_scraper.the_work(chrome_options=chrome_options, **config)
     if things_changed:
-        launch_report_maker(running_on_RPi)
+        launch_report_maker(**config)
 
 
-def launch_report_maker(running_on_RPi=False):
+def launch_report_maker(config):
     print("\nLaunching Report Maker")
-    report_maker.the_work(running_on_RPi)
+    report_maker.the_work(**config)
     print("\tUpdating and Pushing Git")
-    git_committer.the_work()
+    git_committer.the_work(**config)
 
 
 if __name__ == "__main__":
@@ -35,6 +36,8 @@ if __name__ == "__main__":
                         help='include to avoid running immediately')
     parser.add_argument('--future', action='store_true',
                         help='include to run this at :15 and :45 past the hour')
+    parser.add_argument('--reportonly', action='store_true',
+                        help='only run the report maker')
     args = parser.parse_args()
 
     config = dict()
@@ -59,12 +62,12 @@ if __name__ == "__main__":
         chrome_options.add_argument('--ignore-certificate-errors')
         chrome_options.add_argument("--test-type")
     else:
-        config['script_folder'] = ""
+        config['script_folder'] = Path(".")
         config['creds_path'] = "creds.json"
-        config['backup_folder'] = "backup/"
-        config['idph_csv_folder'] = "idph_csv/"
-        config['geo_folder'] = "geo_data/"
-        chrome_path = shutil.which('chromedriver')
+        config['backup_folder'] = Path("backup")
+        config['idph_csv_folder'] = Path("idph_csv")
+        config['geo_folder'] = Path("geo_data")
+        config['chrome_path'] = shutil.which('chromedriver')
         chrome_options.add_argument('--ignore-certificate-errors')
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--disable-gpu')
@@ -72,15 +75,19 @@ if __name__ == "__main__":
         chrome_options.add_argument("--test-type")
         chrome_options.add_argument("--no-sandbox")
 
+    if args.reportonly:
+        launch_report_maker(config)
+        sys.exit()
+
     # Run it now
     if not args.notnow:
-        launch_stat_scraper(chrome_options=chrome_options, **config)
+        launch_stat_scraper(chrome_options, config)
 
     # Keep it running every 30 minutes
     while args.future:
         minutesToSleep = ((60 - datetime.now().minute) % 30) + 15
         print("Waiting %s minutes before running again." % minutesToSleep)
         time.sleep(60 * minutesToSleep)
-        launch_stat_scraper(chrome_options=chrome_options, **config)
+        launch_stat_scraper(chrome_options, config)
 
 
