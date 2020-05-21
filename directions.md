@@ -3,6 +3,7 @@
 Python 3.7, see requirements.txt
 
 For git credentials, from the command line:
+
 ```shell script
 git config credential.helper store
 git push ..... (or another command)
