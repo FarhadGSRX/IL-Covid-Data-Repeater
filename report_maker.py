@@ -7,14 +7,8 @@ pd.set_option('display.max_columns', 10)
 from gspread_pandas import Spread, Client
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime, timedelta
-from pathlib import Path
 
-# Running on my own PC? Or Running headless on the RPi?
-running_RPi = False
 
-# Paths
-script_folder = Path("C:/Users/farha/Google Drive/XS/Git/NicksNewsUpdater/")
-creds_path = "C:/Users/farha/Desktop/ExProc-Creds.json"
 
 # All Google Auth and worksheet connection
 idph_link = "http://www.dph.illinois.gov/covid19/covid19-statistics"
@@ -27,21 +21,8 @@ idph_stats_county_wksht_key = "1sbLLUOqEv_s2eOh3iQyWRw7JOB8rixfu1oBXgPy8zP8"
 idph_stats_totals_wksht_key = "1MWNebArAjjTTtJdxQcnUakShSbADhccx3xw28L2Nflo"
 
 
-def the_work(running_on_RPi=False):
-    if running_on_RPi:
-        script_folder = Path("/home/pi/Git/NicksNewsUpdater/")
-        creds_path = "/home/pi/Git/Credentials/ExProc-Creds.json"
-        backup_folder = Path(script_folder / "backup")
-        idph_csv_folder = Path(script_folder / "idph_csv")
-        geo_folder = Path(script_folder / "geo_data")
-    else:
-        script_folder = Path("C:/Users/farha/Google Drive/XS/Git/NicksNewsUpdater/")
-        creds_path = "C:/Users/farha/Desktop/ExProc-Creds.json"
-        backup_folder = Path(script_folder / "backup")
-        idph_csv_folder = Path(script_folder / "idph_csv")
-        geo_folder = Path(script_folder / "geo_data")
+def the_work(script_folder, creds_path, geo_folder, **kwargs):
 
-    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
     credentials = ServiceAccountCredentials.from_json_keyfile_name(creds_path)
     # If you copy this, make sure the file you are opening is accessible to your service account
     # Ie. Give Sharing/Edit access to ExProc (gdrive-user@exproc.iam.gserviceaccount.com)
@@ -67,11 +48,6 @@ def the_work(running_on_RPi=False):
     census_df = pd.read_csv(geo_folder / "Illinois_Census_200414_1816.csv")
     nofo_map_dict = dict(zip(census_df.CountyName, census_df.NOFO_Region))
     metro_map_dict = dict(zip(census_df.CountyName, census_df.Metro_area))
-
-    # dt_cols = ['update_date', 'update_time']
-    # for col in dt_cols:
-    #    df_county_today[col] = pd.to_datetime(df_county_today[col])
-    #    df_county_yday[col] = pd.to_datetime(df_county_yday[col])
 
     # Calculate difference columns
     df_merge = df_county_today.merge(df_county_yday, how="left", left_index=True, right_index=True)

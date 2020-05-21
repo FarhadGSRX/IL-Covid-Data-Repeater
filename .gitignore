@@ -1,0 +1,9 @@
+creds.json
+venv/*
+
+.idea/
+__pycache__/
+*.py[cod]
+
+chromedriver
+debian-binary
