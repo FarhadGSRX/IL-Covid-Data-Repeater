@@ -3,8 +3,8 @@
 Hello Illinois Covid-19 Researchers and Responders,
 
 To facilitate your raw data needs, I am continually scraping and updating these google sheets with the numbers from the IDPH Statistics front page.
-The scraper automatically runs twice an hour at the 0015 and 0045 times. The sheets (linked below) only update when there are new results from IDPH.
-These are all _raw_ numbers from the IDPH Website. I manually check the page and data everyday to ensure accuracy of my records (at least through May).
+The scraper runs automatically. The sheets (linked below) only update when there are new results from IDPH.
+These are all _raw_ numbers from the IDPH Website. 
 
 Please distribute freely.
 
@@ -18,7 +18,7 @@ Please distribute freely.
 
 Cheers, Fg
 
-## Most Recent Report ({today_date_n_time})
+## Most Recent Report ({the_date_year} {the_time})
 ##### Date Comparison: {today_date} and {yday_date}
 ###### (The numbers below are not absolute values. They are the direct result of subtracting yesterday's values from today's values. Ie, a positive number indicates a growth in count.)
 

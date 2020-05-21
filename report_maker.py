@@ -7,6 +7,7 @@ pd.set_option('display.max_columns', 10)
 from gspread_pandas import Spread, Client
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime, timedelta
+from pytz import timezone
 
 
 
@@ -31,12 +32,12 @@ def the_work(script_folder, creds_path, geo_folder, **kwargs):
     totals_spread = Spread(spread=gsheet_totals_link, creds=credentials)
 
     # Dates
-    the_date = datetime.now().strftime("%m-%d")
-    the_date_year_yday = datetime.strftime(datetime.now() - timedelta(1), '%m-%d-%y')
-    the_date_year = datetime.now().strftime("%m-%d-%y")
-    the_date_YEAR = datetime.now().strftime("%m-%d-%Y")
-    the_date_n_time = datetime.now().strftime("%m-%d-%H%M")
-    the_time = datetime.now().strftime("%H:%M")
+    the_date = datetime.now(timezone('US/Central')).strftime("%m-%d")
+    the_date_year_yday = datetime.strftime(datetime.now(timezone('US/Central')) - timedelta(1), '%m-%d-%y')
+    the_date_year = datetime.now(timezone('US/Central')).strftime("%m-%d-%y")
+    the_date_YEAR = datetime.now(timezone('US/Central')).strftime("%m-%d-%Y")
+    the_date_n_time = datetime.now(timezone('US/Central')).strftime("%m-%d-%H%M")
+    the_time = datetime.now(timezone('US/Central')).strftime("%H:%M")
 
     # Get the data in here
     df_county_today = county_spread.sheet_to_df(index=0, sheet=county_spread.find_sheet(the_date_year))
@@ -99,6 +100,7 @@ def the_work(script_folder, creds_path, geo_folder, **kwargs):
         template = rm_tmp.read()
         new_readme = template.format(today_date_n_time=the_date_n_time,
                                      today_date=the_date_year,
+                                     the_time=the_time,
                                      yday_date=the_date_year_yday,
                                      Metro_Report=metro_report,
                                      County_Report=county_report,

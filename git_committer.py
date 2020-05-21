@@ -1,10 +1,11 @@
 import subprocess as cmd
 from datetime import datetime
+from pytz import timezone
 
 '''Assumes git credentials are stored'''
 
 def the_work(script_folder, **kwargs):
-    the_date_n_time = datetime.now().strftime("%m-%d-%H%M")
+    the_date_n_time = datetime.now(timezone('US/Central')).strftime("%m-%d-%H%M")
 
     sf = str(script_folder)
     print(sf)

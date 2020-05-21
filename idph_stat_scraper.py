@@ -7,6 +7,7 @@ import time
 from gspread_pandas import Spread, Client
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime, timedelta
+from pytz import timezone
 
 # The reason we have to use selenium is because many pages actually load their html within javascript...
 from selenium import webdriver
@@ -28,12 +29,12 @@ idph_stats_totals_wksht_key = "1MWNebArAjjTTtJdxQcnUakShSbADhccx3xw28L2Nflo"
 
 def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_options, chrome_path='chromedriver', **kwargs):
     # Dates
-    the_date = datetime.now().strftime("%m-%d")
-    the_date_year_yday = datetime.strftime(datetime.now() - timedelta(1), '%m-%d-%y')
-    the_date_year = datetime.now().strftime("%m-%d-%y")
-    the_date_YEAR = datetime.now().strftime("%m-%d-%Y")
-    the_date_n_time = datetime.now().strftime("%m-%d-%H%M")
-    the_time = datetime.now().strftime("%H:%M")
+    the_date = datetime.now(timezone('US/Central')).strftime("%m-%d")
+    the_date_year_yday = datetime.strftime(datetime.now(timezone('US/Central')) - timedelta(1), '%m-%d-%y')
+    the_date_year = datetime.now(timezone('US/Central')).strftime("%m-%d-%y")
+    the_date_YEAR = datetime.now(timezone('US/Central')).strftime("%m-%d-%Y")
+    the_date_n_time = datetime.now(timezone('US/Central')).strftime("%m-%d-%H%M")
+    the_time = datetime.now(timezone('US/Central')).strftime("%H:%M")
 
     credentials = ServiceAccountCredentials.from_json_keyfile_name(creds_path)
     # If you copy this, make sure the file you are opening is accessible to your service account
