@@ -1,6 +1,3 @@
-# V2 was created on 4/18 when IDPH added their new column for "Tested" to the IL DPH Stats page.
-# I saved the old version, and made this new one, in case they reverted for some reason.
-
 import bs4
 import gspread
 import pandas as pd
@@ -10,20 +7,11 @@ import time
 from gspread_pandas import Spread, Client
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime, timedelta
-from pathlib import Path
 
 # The reason we have to use selenium is because many pages actually load their html within javascript...
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
 
 timeout = 30
-
-# Default Paths
-script_folder = Path("C:/Users/farha/Google Drive/XS/Git/NicksNewsUpdater/")
-creds_path = "C:/Users/farha/Desktop/ExProc-Creds.json"
 
 output_county_file_name = "IDPH Stats County %s.csv"
 output_zip_file_name = "IDPH Stats Zip %s.csv"
@@ -38,22 +26,7 @@ idph_stats_county_wksht_key = "1sbLLUOqEv_s2eOh3iQyWRw7JOB8rixfu1oBXgPy8zP8"
 idph_stats_totals_wksht_key = "1MWNebArAjjTTtJdxQcnUakShSbADhccx3xw28L2Nflo"
 
 
-def the_work(running_on_RPi=False):
-    # %%
-    if running_on_RPi:
-        script_folder = Path("/home/pi/Git/NicksNewsUpdater/")
-        creds_path = "/home/pi/Git/Credentials/ExProc-Creds.json"
-        backup_folder = Path(script_folder / "backup")
-        idph_csv_folder = Path(script_folder / "idph_csv")
-        geo_folder = Path(script_folder / "geo_data")
-
-    else:
-        script_folder = Path("C:/Users/farha/Google Drive/XS/Git/NicksNewsUpdater/")
-        creds_path = "C:/Users/farha/Desktop/ExProc-Creds.json"
-        backup_folder = Path(script_folder / "backup")
-        idph_csv_folder = Path(script_folder / "idph_csv")
-        geo_folder = Path(script_folder / "geo_data")
-
+def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_options, chrome_path='chromedriver'):
     # Dates
     the_date = datetime.now().strftime("%m-%d")
     the_date_year_yday = datetime.strftime(datetime.now() - timedelta(1), '%m-%d-%y')
@@ -62,7 +35,7 @@ def the_work(running_on_RPi=False):
     the_date_n_time = datetime.now().strftime("%m-%d-%H%M")
     the_time = datetime.now().strftime("%H:%M")
 
-    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    # scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
     credentials = ServiceAccountCredentials.from_json_keyfile_name(creds_path)
     # If you copy this, make sure the file you are opening is accessible to your service account
     # Ie. Give Sharing/Edit access to ExProc (gdrive-user@exproc.iam.gserviceaccount.com)
@@ -84,20 +57,7 @@ def the_work(running_on_RPi=False):
             time.sleep(5)
             continue
 
-    # %%
-    # Webdriver setup
-    options = webdriver.ChromeOptions()
-    if running_on_RPi:
-        options.add_argument('--ignore-certificate-errors')
-        options.add_argument('--headless')
-        options.add_argument('--disable-gpu')
-        options.add_argument("--window-size=1024,768")
-        options.add_argument("--test-type")
-    else:
-        options.add_argument('--ignore-certificate-errors')
-        options.add_argument("--test-type")
-
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(options=chrome_options)  # Chrome options are passed into function
     driver.implicitly_wait(300)
 
     # %%
