@@ -7,7 +7,7 @@ import shutil
 
 from selenium import webdriver
 
-import idph_stat_scraper_v2 as idph_stat_scraper
+import idph_stat_scraper as idph_stat_scraper
 import report_maker
 import git_committer
 
