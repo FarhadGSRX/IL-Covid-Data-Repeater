@@ -16,7 +16,7 @@ def launch_stat_scraper(chrome_options, config):
     print("\nLaunching IDPH Stat Scraper")
     things_changed = idph_stat_scraper.the_work(chrome_options=chrome_options, **config)
     if things_changed:
-        launch_report_maker(**config)
+        launch_report_maker(config)
 
 
 def launch_report_maker(config):
