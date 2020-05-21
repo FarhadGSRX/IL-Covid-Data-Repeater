@@ -6,8 +6,9 @@ from datetime import datetime
 def the_work(script_folder, **kwargs):
     the_date_n_time = datetime.now().strftime("%m-%d-%H%M")
 
-    print("Running: cd %s".format(script_folder))
-    cp = cmd.run("cd %s".format(script_folder), check=True, shell=True)
+    print(script_folder)
+    print("Running: cd %s".format(str(script_folder)))
+    cp = cmd.run("cd %s".format(str(script_folder)), check=True, shell=True)
     print(cp)
 
     cp = cmd.run("git add .", check=True, shell=True)
