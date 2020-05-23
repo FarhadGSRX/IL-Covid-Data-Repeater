@@ -72,7 +72,8 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
     # Collecting totals
     daily_totals = {"tests_pos": int(driver.find_element_by_id("covid19positive").text.replace(",", "")),
                     "deaths": int(driver.find_element_by_id("covid19deaths").text.replace(",", "")),
-                    "total_tests": int(driver.find_element_by_id("covid19totaltest").text.replace(",", ""))}
+                    "total_tests": int(driver.find_element_by_id("covid19totaltest").text.replace(",", "")),
+                    "recovered": int(driver.find_element_by_id("covid19recovered").text.replace(",", ""))}
 
     by_county_button = driver.find_element_by_link_text("By County")
     by_zip_button = driver.find_element_by_link_text("By Zip")
@@ -139,13 +140,15 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
     assert daily_totals['tests_pos'] >= int(df_totals_oldlong.iloc[0]['tests_pos'])  # Was the number back on 4/18/2020
     assert daily_totals['deaths'] >= int(df_totals_oldlong.iloc[0]['deaths'])
     assert daily_totals['total_tests'] >= int(df_totals_oldlong.iloc[0]['total_tests'])
+    assert daily_totals['recovered'] >= int(df_totals_oldlong.iloc[0]['recovered'])
     print("Daily Totals Assertions passed.")
 
     totals_changed = False
 
     if (daily_totals['tests_pos'] != int(df_totals_oldlong.iloc[0]['tests_pos'])) or \
             (daily_totals['deaths'] != int(df_totals_oldlong.iloc[0]['deaths'])) or \
-            (daily_totals['total_tests'] != int(df_totals_oldlong.iloc[0]['total_tests'])):
+            (daily_totals['total_tests'] != int(df_totals_oldlong.iloc[0]['total_tests'])) or \
+            (daily_totals['recovered'] != int(df_totals_oldlong.iloc[0]['recovered'])):
         totals_changed = True
         print("Totals were detected as changed.")
 
@@ -157,7 +160,8 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
         df_totals_today = pd.DataFrame(daily_totals, index=[0])
 
         df_totals_newlong = df_totals_today.append(df_totals_oldlong)[
-            ["update_date", "tests_pos", "deaths", "total_tests", "tests_neg", "new_tests"]].reset_index(drop=True)
+            ["update_date", "tests_pos", "deaths", "total_tests", "recovered", "tests_neg", "new_tests"]].reset_index(
+            drop=True)
         df_totals_newlong.to_csv(idph_csv_folder / ("Long Totals %s.csv" % the_date_n_time), index=False)
         totals_spread.df_to_sheet(df_totals_newlong, index=False, sheet="IL_long", start="A1", replace=True)
 
