@@ -36,6 +36,8 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
     the_date_n_time = datetime.now(timezone('US/Central')).strftime("%m-%d-%H%M")
     the_time = datetime.now(timezone('US/Central')).strftime("%H:%M")
 
+    print("Starting scraper...{} {}".format(the_date_year, the_time))
+
     credentials = ServiceAccountCredentials.from_json_keyfile_name(creds_path)
     # If you copy this, make sure the file you are opening is accessible to your service account
     # Ie. Give Sharing/Edit access to ExProc (gdrive-user@exproc.iam.gserviceaccount.com)
@@ -108,11 +110,11 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
     county_table_headers_arr = [x.get_text() for x in county_table_headers]
     assert county_table_headers_arr == ['County', 'Tested', 'Positive Cases', 'Deaths']
 
-    print("Zip first:")
-    print(zip_table_soup.find_all("tr")[1:])
-    print()
-    print("County second:")
-    print(county_table_soup.find_all("tr")[1:])
+    #print("Zip first:")
+    #print(zip_table_soup.find_all("tr")[1:])
+    #print()
+    #print("County second:")
+    #print(county_table_soup.find_all("tr")[1:])
 
     df_zip_today = pd.DataFrame(columns=zip_table_headers_arr)
     for tr in zip_table_soup.find_all('tr')[1:]:

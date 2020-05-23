@@ -7,6 +7,8 @@ from pytz import timezone
 def the_work(script_folder, **kwargs):
     the_date_n_time = datetime.now(timezone('US/Central')).strftime("%m-%d-%H%M")
 
+    print("Pushing to git")
+
     sf = str(script_folder)
     print(sf)
     print("Running: cd %s" % sf)

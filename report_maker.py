@@ -80,27 +80,28 @@ def the_work(script_folder, creds_path, geo_folder, **kwargs):
          ('Totals to Date', 'Tests'), ('Totals to Date', 'Cases'), ('Totals to Date', 'Deaths'),
          ('Region', 'NOFO Region'), ('Region', 'Metro Area')])
     county_report_out = county_report.iloc[:, 0:9].to_string()
-    print(county_report_out)
+    #print(county_report_out)
 
     # Differences by NOFO Region
     nofo_report = df_merge.copy().groupby(by="NOFO Region").sum()
     nofo_report.columns = pd.MultiIndex.from_product(
         [['Daily Difference', 'Totals to Date'], ['Tests', 'Cases', 'Deaths']])
     nofo_report_out = nofo_report.to_string()
-    print(nofo_report_out)
+    #print(nofo_report_out)
 
     # Differences by Metro Area
     metro_report = df_merge.copy().groupby(by="Metro Area").agg("sum")
     metro_report.columns = pd.MultiIndex.from_product(
         [['Daily Difference', 'Totals to Date'], ['Tests', 'Cases', 'Deaths']])
     metro_report_out = metro_report.to_string()
-    print(metro_report)
+    #print(metro_report)
 
     with open(script_folder / "readme_template.md", "r") as rm_tmp:
         template = rm_tmp.read()
         new_readme = template.format(today_date_n_time=the_date_n_time,
                                      today_date=the_date_year,
                                      the_time=the_time,
+                                     the_date_year=the_date_year,
                                      yday_date=the_date_year_yday,
                                      Metro_Report=metro_report,
                                      County_Report=county_report,
@@ -108,3 +109,5 @@ def the_work(script_folder, creds_path, geo_folder, **kwargs):
 
     with open(script_folder / "readme.md", "w+") as new_rm:
         new_rm.write(new_readme)
+
+    print("Successfully updated readme")
