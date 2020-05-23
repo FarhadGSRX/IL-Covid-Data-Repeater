@@ -101,6 +101,7 @@ def the_work(script_folder, creds_path, geo_folder, **kwargs):
         new_readme = template.format(today_date_n_time=the_date_n_time,
                                      today_date=the_date_year,
                                      the_time=the_time,
+                                     the_date_year=the_date_year,
                                      yday_date=the_date_year_yday,
                                      Metro_Report=metro_report,
                                      County_Report=county_report,
