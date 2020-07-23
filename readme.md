@@ -18,8 +18,8 @@ Please distribute freely.
 
 Cheers, Fg
 
-## Most Recent Report (07-22-20 12:47)
-##### Date Comparison: 07-22-20 and 07-21-20
+## Most Recent Report (07-23-20 12:47)
+##### Date Comparison: 07-23-20 and 07-22-20
 ###### (The numbers below are not absolute values. They are the direct result of subtracting yesterday's values from today's values. Ie, a positive number indicates a growth in count.)
 
 By NOFO Regions
@@ -28,21 +28,20 @@ By NOFO Regions
                   Daily Difference              Totals to Date               
                              Tests Cases Deaths          Tests   Cases Deaths
 NOFO Region                                                                  
-Central                       1912    56      1          94705    1724     82
-Chicago                       6995   352      4         578485   57694   2736
-Collar                        8865   460      4         535623   43406   1766
-Illinois                     39633  1598     23        2348487  165301   7347
-North Central                 2134    48      0          89972    1770     60
-Northeast Central             2333    58      0          77524    1787     25
-Northern                      1109    39      3          77890    5414    169
-Northwest                     1463    54      0          66195    2457     72
-Out Of State                   947     1      0          24519       3      0
-Southeast Central              542    10      0          33544     705     29
-Southern                       514    53      0          47161    1953     70
-Southwest Central             1680   166      1          76243    5093    255
-Suburban                      6800   308      9         480009   42430   2065
-Unassigned                     206     1      0          46502      38      0
-West Central                   670     5      1          30154     826     18
+Central                       2452    58      0          97157    1782     82
+Chicago                       8234   386      7         586719   58080   2743
+Collar                        8265   396      9         543888   43802   1775
+Illinois                     39706  1624     20        2388193  166925   7367
+North Central                 1618    60      0          91590    1830     60
+Northeast Central             2028    36      1          79552    1823     26
+Northern                      1034    64      1          78924    5478    170
+Northwest                     1558    82      0          67753    2539     72
+Southeast Central              988    38      0          34532     743     29
+Southern                       889    64      0          48050    2017     70
+Southwest Central             1998   138      0          78241    5231    255
+Suburban                      7034   285      2         487043   42715   2067
+Unassigned                     298    -2      0          46800      36      0
+West Central                   561    19      0          30715     845     18
 ```
 
 By Metro Areas
@@ -50,246 +49,244 @@ By Metro Areas
                   Daily Difference              Totals to Date               
                              Tests Cases Deaths          Tests   Cases Deaths
 Metro Area                                                                   
-Bloomington                    266    10      0          21658     442     15
-Cape_Girardeau                   8     0      0            850      32      0
-Carbondale-Marion              228    21      0          17052     652     23
-Champaign-Urbana              1902    29      0          60400    1356     18
-Chicago                      19181   939     14        1366655  122436   5773
-Danville                       268     4      0           9469     141      2
-Davenport                      889    21      0          37319    1560     31
-Decatur                        213     6      0          12599     288     22
-Elgin                         1379    59      3          94321    9209    317
-Illinois                     39633  1598     23        2348487  165301   7347
-Kankakee                       397    17      0          24479    1534     66
-Lake                          1947   116      1         121710   11079    435
-Peoria                        1590    37      0          58653    1209     43
-Rockford                       761    25      2          52089    4049    134
-Springfield                    934    26      0          46996     753     33
-St_Louis                      1821   171      1          82750    5158    258
+Bloomington                    449    14      0          22107     456     15
+Cape_Girardeau                  20     1      0            870      33      0
+Carbondale-Marion              347    20      0          17399     672     23
+Champaign-Urbana              1508    27      0          61908    1383     18
+Chicago                      19890   895     14        1386545  123331   5787
+Danville                       254     5      0           9723     146      2
+Davenport                     1001    36      0          38320    1596     31
+Decatur                        374     9      0          12973     297     22
+Elgin                         1158    84      1          95479    9293    318
+Illinois                     39706  1624     20        2388193  166925   7367
+Kankakee                       549    29      0          25028    1563     66
+Lake                          2096    80      3         123806   11159    438
+Peoria                         995    44      0          59648    1253     43
+Rockford                       750    38      1          52839    4087    135
+Springfield                   1139    31      0          48135     784     33
+St_Louis                      2189   134      0          84939    5292    258
 ```
 
 By County
 
 ```
-             Daily Difference              Totals to Date                 \
-                        Tests Cases Deaths          Tests   Cases Deaths   
-County                                                                     
-Illinois                39633  1598     23        2348487  165301   7347   
-Adams                     293    -3      0          13921     286      1   
-Alexander                   8     0      0            850      32      0   
-Bond                       91     1      0           1834      29      1   
-Boone                      69     4      0           7306     663     21   
-Brown                      44     0      0            658      11      0   
-Bureau                    126     5      0           3350      62      2   
-Calhoun                     2    -1      0            369       3      0   
-Carroll                    29     0      0           1185      24      2   
-Cass                       41     3      0           2403     160     11   
-Champaign                1806    30      0          55500    1293     17   
-Chicago                  6995   352      4         578485   57694   2736   
-Christian                 142     4      0           3935      60      4   
-Clark                     137     0      0           1708      50      0   
-Clay                        2     0      0           1471       9      0   
-Clinton                    54     5      0           5234     278     17   
-Coles                     164     6      0           8950     261     17   
-Cook                     6800   308      9         480009   42430   2065   
-Crawford                    8     0      0           1318      26      0   
-Cumberland                 22    -1      0           1511      36      1   
-De Witt                    22     0      0           1482      24      0   
-DeKalb                    244    11      1          13048     728     24   
-Douglas                    75     5      0           2746      89      0   
-DuPage                   2642   117      0         149705   10531    500   
-Edgar                      13     0      0           1594      18      0   
-Edwards                     1     0      0            342       6      0   
-Effingham                  83     2      0           3934      48      1   
-Fayette                    10     0      0           2129      39      3   
-Ford                       26     0      0           2028      33      1   
-Franklin                   39     0      0           4256      79      0   
-Fulton                    200    -1      0           3890      20      0   
-Gallatin                    4     2      0            298      23      0   
-Greene                     22     0      0           1255      13      0   
-Grundy                    109    11      0           5251     226      5   
-Hamilton                   10     0      0            580      11      0   
-Hancock                    48     0      0           2763      22      1   
-Hardin                      8     2      0            321       9      0   
-Henderson                   5     0      0            500       8      0   
-Henry                     181     0      0           6673     146      1   
-Iroquois                   88    20      0           4909     201      5   
-Jackson                    98    14      0           7716     434     19   
-Jasper                      9     0      0           1194      49      7   
-Jefferson                  28     1      0           3960     138     17   
-Jersey                     36     2      0           1780      56      1   
-Jo Daviess                 29    10      0           2355      80      1   
-Johnson                     9     0      0           1074      42      0   
-Kane                     1135    48      2          81273    8481    293   
-Kankakee                  397    17      0          24479    1534     66   
-Kendall                   255    19      0          15848    1151     21   
-Knox                      101     3      1           5469     199      1   
-Lake                     1947   116      1         121710   11079    435   
-LaSalle                   233    12      0          12179     362     18   
-Lawrence                   26     2      0           1663      30      0   
-Lee                        35     1      0           3257     120      2   
-Livingston                 55     2      0           3842      63      2   
-Logan                     103     2      0           5678      57      0   
-Macon                     213     6      0          12599     288     22   
-Macoupin                  148     5      0           7684     100      3   
-Madison                   800    64      0          29757    1604     71   
-Marion                     34     1      0           4386      97      0   
-Marshall                   28     0      0           1299      15      0   
-Mason                      23     0      0           1929      36      0   
-Massac                     31     2      0           1374      24      0   
-McDonough                  96     1      0           3356     119     15   
-McHenry                   821    49      1          34687    2559    110   
-McLean                    244    10      0          20176     418     15   
-Menard                     46     1      0           2045      36      0   
-Mercer                     29     1      0           1782      39      0   
-Monroe                     38     6      0           3099     205     13   
-Montgomery                179     5      1           5128     112      3   
-Morgan                     67     1      0           5886     146      5   
-Moultrie                   24     0      0           1582      33      0   
-Ogle                       62     1      0           6443     345      5   
-Out Of State              947     1      0          24519       3      0   
-Peoria                    885    26      0          32311     878     32   
-Perry                      19     3      0           2542      73      1   
-Piatt                      70    -1      0           2872      30      0   
-Pike                       23     0      0           1208       9      0   
-Pope                        4     0      0            222       2      0   
-Pulaski                     2     0      0            685      88      0   
-Putnam                      8     0      0            365       3      0   
-Randolph                   59     5      0           4719     374      7   
-Richland                   10     0      0           2104       9      0   
-Rock Island               679    20      0          28864    1375     30   
-Saline                     32     1      0           2394      60      0   
-Sangamon                  888    25      0          44951     717     33   
-Schuyler                   17     0      0            773      14      0   
-Scott                      27     2      0            676       4      0   
-Shelby                     36     2      0           2465      31      1   
-St. Clair                 652    89      1          32993    2883    152   
-Stark                      20     1      0            767       7      0   
-Stephenson                 42     2      0           6310     292      6   
-Tazewell                  558     8      0          20214     243      8   
-Unassigned                206     1      0          46502      38      0   
-Union                      18    14      0           2912     255     21   
-Vermilion                 268     4      0           9469     141      2   
-Wabash                      1     1      0            933      25      0   
-Warren                     43     4      0           1506     158      0   
-Washington                  7     0      0           1177      35      0   
-Wayne                       4     0      0           1461      27      1   
-White                       9     1      0           1186      33      0   
-Whiteside                 114     5      0           6185     246     16   
-Will                     1559    83      0         102670    7845    336   
-Williamson                130     7      0           9336     218      4   
-Winnebago                 692    21      2          44783    3386    113   
-Woodford                   99     2      0           4062      66      3   
+            Daily Difference              Totals to Date                 \
+                       Tests Cases Deaths          Tests   Cases Deaths   
+County                                                                    
+Illinois               39706  1624     20        2388193  166925   7367   
+Adams                    303    16      0          14224     302      1   
+Alexander                 20     1      0            870      33      0   
+Bond                      27     1      0           1861      30      1   
+Boone                     72     6      1           7378     669     22   
+Brown                      5     1      0            663      12      0   
+Bureau                    26     3      0           3376      65      2   
+Calhoun                    3     1      0            372       4      0   
+Carroll                   24     3      0           1209      27      2   
+Cass                      43     1      0           2446     161     11   
+Champaign               1429    25      0          56929    1318     17   
+Chicago                 8234   386      7         586719   58080   2743   
+Christian                114     5      0           4049      65      4   
+Clark                     29     1      0           1737      51      0   
+Clay                      23     0      0           1494       9      0   
+Clinton                   74    10      0           5308     288     17   
+Coles                    356    12      0           9306     273     17   
+Cook                    7034   285      2         487043   42715   2067   
+Crawford                  32     2      0           1350      28      0   
+Cumberland                83     1      0           1594      37      1   
+De Witt                   27     0      0           1509      24      0   
+DeKalb                   160    21      0          13208     749     24   
+Douglas                   68     3      1           2814      92      1   
+DuPage                  2083    96      2         151788   10627    502   
+Edgar                     25     2      0           1619      20      0   
+Edwards                    7     0      0            349       6      0   
+Effingham                140     3      0           4074      51      1   
+Fayette                   53     1      0           2182      40      3   
+Ford                      32     2      0           2060      35      1   
+Franklin                  72     5      0           4328      84      0   
+Fulton                    74     0      0           3964      20      0   
+Gallatin                  12     3      0            310      26      0   
+Greene                    24     1      0           1279      14      0   
+Grundy                    71     5      0           5322     231      5   
+Hamilton                   4     0      0            584      11      0   
+Hancock                    8     0      0           2771      22      1   
+Hardin                    10     0      0            331       9      0   
+Henderson                  2     0      0            502       8      0   
+Henry                    278     7      0           6951     153      1   
+Iroquois                 198     1      0           5107     202      5   
+Jackson                  145    16      0           7861     450     19   
+Jasper                    26     0      0           1220      49      7   
+Jefferson                 61     4      0           4021     142     17   
+Jersey                    27     1      0           1807      57      1   
+Jo Daviess                38     4      0           2393      84      1   
+Johnson                   29     5      0           1103      47      0   
+Kane                     998    63      1          82271    8544    294   
+Kankakee                 549    29      0          25028    1563     66   
+Kendall                  248     9      0          16096    1160     21   
+Knox                      94     0      0           5563     199      1   
+Lake                    2096    80      3         123806   11159    438   
+LaSalle                  170    17      0          12349     379     18   
+Lawrence                  59     2      0           1722      32      0   
+Lee                       42     0      0           3299     120      2   
+Livingston                56     2      0           3898      65      2   
+Logan                    116     2      0           5794      59      0   
+Macon                    374     9      0          12973     297     22   
+Macoupin                 253     1      0           7937     101      3   
+Madison                  660    47      0          30417    1651     71   
+Marion                    92    10      0           4478     107      0   
+Marshall                  14     0      0           1313      15      0   
+Mason                     44     0      0           1973      36      0   
+Massac                    27     2      0           1401      26      0   
+McDonough                 57     0      0           3413     119     15   
+McHenry                  662    34      1          35349    2593    111   
+McLean                   422    14      0          20598     432     15   
+Menard                    49     1      0           2094      37      0   
+Mercer                    34     3      0           1816      42      0   
+Monroe                    60     5      0           3159     210     13   
+Montgomery               209     3      0           5337     115      3   
+Morgan                    92     2      0           5978     148      5   
+Moultrie                  54     4      0           1636      37      0   
+Ogle                      52     1      0           6495     346      5   
+Peoria                   572    37      0          32883     915     32   
+Perry                     36     7      0           2578      80      1   
+Piatt                     47     0      0           2919      30      0   
+Pike                      24     0      0           1232       9      0   
+Pope                       9     1      0            231       3      0   
+Pulaski                   22     0      0            707      88      0   
+Putnam                     6     1      0            371       4      0   
+Randolph                  71    10      0           4790     384      7   
+Richland                  16     0      0           2120       9      0   
+Rock Island              689    26      0          29553    1401     30   
+Saline                    58     4      0           2452      64      0   
+Sangamon                1090    30      0          46041     747     33   
+Schuyler                  21     0      0            794      14      0   
+Scott                     18     2      0            694       6      0   
+Shelby                    70     1      0           2535      32      1   
+St. Clair               1085    68      0          34078    2951    152   
+Stark                     11    -1      0            778       6      0   
+Stephenson                72     4      0           6382     296      6   
+Tazewell                 327     8      0          20541     251      8   
+Unassigned               298    -2      0          46800      36      0   
+Union                     65     1      0           2977     256     21   
+Vermilion                254     5      0           9723     146      2   
+Wabash                     5     0      0            938      25      0   
+Warren                    47     2      0           1553     160      0   
+Washington                62     5      0           1239      40      0   
+Wayne                     11     0      0           1472      27      1   
+White                     23     1      0           1209      34      0   
+Whiteside                251    18      0           6436     264     16   
+Will                    1558    80      2         104228    7925    338   
+Williamson               202     4      0           9538     222      4   
+Winnebago                678    32      0          45461    3418    113   
+Woodford                  71     0      0           4133      66      3   
 
-                         Region                     
-                    NOFO Region         Metro Area  
-County                                              
-Illinois               Illinois           Illinois  
-Adams              West Central                NaN  
-Alexander              Southern     Cape_Girardeau  
-Bond          Southwest Central           St_Louis  
-Boone                  Northern           Rockford  
-Brown              West Central                NaN  
-Bureau                Northwest                NaN  
-Calhoun       Southwest Central           St_Louis  
-Carroll               Northwest                NaN  
-Cass                    Central                NaN  
-Champaign     Northeast Central   Champaign-Urbana  
-Chicago                 Chicago            Chicago  
-Christian               Central                NaN  
-Clark         Southeast Central                NaN  
-Clay          Southeast Central                NaN  
-Clinton       Southwest Central           St_Louis  
-Coles         Southeast Central                NaN  
-Cook                   Suburban            Chicago  
-Crawford      Southeast Central                NaN  
-Cumberland    Southeast Central                NaN  
-De Witt           North Central        Bloomington  
-DeKalb                 Northern              Elgin  
-Douglas       Northeast Central                NaN  
-DuPage                   Collar            Chicago  
-Edgar         Southeast Central                NaN  
-Edwards                Southern                NaN  
-Effingham     Southeast Central                NaN  
-Fayette       Southeast Central                NaN  
-Ford          Northeast Central   Champaign-Urbana  
-Franklin               Southern                NaN  
-Fulton            North Central                NaN  
-Gallatin               Southern                NaN  
-Greene                  Central                NaN  
-Grundy                   Collar            Chicago  
-Hamilton               Southern                NaN  
-Hancock            West Central                NaN  
-Hardin                 Southern                NaN  
-Henderson          West Central                NaN  
-Henry                 Northwest          Davenport  
-Iroquois      Northeast Central                NaN  
-Jackson                Southern  Carbondale-Marion  
-Jasper        Southeast Central                NaN  
-Jefferson              Southern                NaN  
-Jersey        Southwest Central           St_Louis  
-Jo Daviess            Northwest                NaN  
-Johnson                Southern                NaN  
-Kane                     Collar              Elgin  
-Kankakee                 Collar           Kankakee  
-Kendall                  Collar            Chicago  
-Knox               West Central                NaN  
-Lake                     Collar               Lake  
-LaSalle               Northwest                NaN  
-Lawrence      Southeast Central                NaN  
-Lee                   Northwest                NaN  
-Livingston        North Central                NaN  
-Logan                   Central                NaN  
-Macon                   Central            Decatur  
-Macoupin                Central           St_Louis  
-Madison       Southwest Central           St_Louis  
-Marion        Southeast Central                NaN  
-Marshall          North Central             Peoria  
-Mason             North Central                NaN  
-Massac                 Southern                NaN  
-McDonough          West Central                NaN  
-McHenry                  Collar            Chicago  
-McLean            North Central        Bloomington  
-Menard                  Central        Springfield  
-Mercer                Northwest          Davenport  
-Monroe        Southwest Central           St_Louis  
-Montgomery              Central                NaN  
-Morgan                  Central                NaN  
-Moultrie      Southeast Central                NaN  
-Ogle                   Northern                NaN  
-Out Of State       Out Of State                NaN  
-Peoria            North Central             Peoria  
-Perry                  Southern                NaN  
-Piatt         Northeast Central   Champaign-Urbana  
-Pike               West Central                NaN  
-Pope                   Southern                NaN  
-Pulaski                Southern                NaN  
-Putnam                Northwest                NaN  
-Randolph               Southern                NaN  
-Richland      Southeast Central                NaN  
-Rock Island           Northwest          Davenport  
-Saline                 Southern                NaN  
-Sangamon                Central        Springfield  
-Schuyler           West Central                NaN  
-Scott                   Central                NaN  
-Shelby                  Central                NaN  
-St. Clair     Southwest Central           St_Louis  
-Stark             North Central             Peoria  
-Stephenson             Northern                NaN  
-Tazewell          North Central             Peoria  
-Unassigned           Unassigned                NaN  
-Union                  Southern                NaN  
-Vermilion     Northeast Central           Danville  
-Wabash                 Southern                NaN  
-Warren             West Central                NaN  
-Washington    Southwest Central                NaN  
-Wayne                  Southern                NaN  
-White                  Southern                NaN  
-Whiteside             Northwest                NaN  
-Will                     Collar            Chicago  
-Williamson             Southern  Carbondale-Marion  
-Winnebago              Northern           Rockford  
-Woodford          North Central             Peoria  
+                        Region                     
+                   NOFO Region         Metro Area  
+County                                             
+Illinois              Illinois           Illinois  
+Adams             West Central                NaN  
+Alexander             Southern     Cape_Girardeau  
+Bond         Southwest Central           St_Louis  
+Boone                 Northern           Rockford  
+Brown             West Central                NaN  
+Bureau               Northwest                NaN  
+Calhoun      Southwest Central           St_Louis  
+Carroll              Northwest                NaN  
+Cass                   Central                NaN  
+Champaign    Northeast Central   Champaign-Urbana  
+Chicago                Chicago            Chicago  
+Christian              Central                NaN  
+Clark        Southeast Central                NaN  
+Clay         Southeast Central                NaN  
+Clinton      Southwest Central           St_Louis  
+Coles        Southeast Central                NaN  
+Cook                  Suburban            Chicago  
+Crawford     Southeast Central                NaN  
+Cumberland   Southeast Central                NaN  
+De Witt          North Central        Bloomington  
+DeKalb                Northern              Elgin  
+Douglas      Northeast Central                NaN  
+DuPage                  Collar            Chicago  
+Edgar        Southeast Central                NaN  
+Edwards               Southern                NaN  
+Effingham    Southeast Central                NaN  
+Fayette      Southeast Central                NaN  
+Ford         Northeast Central   Champaign-Urbana  
+Franklin              Southern                NaN  
+Fulton           North Central                NaN  
+Gallatin              Southern                NaN  
+Greene                 Central                NaN  
+Grundy                  Collar            Chicago  
+Hamilton              Southern                NaN  
+Hancock           West Central                NaN  
+Hardin                Southern                NaN  
+Henderson         West Central                NaN  
+Henry                Northwest          Davenport  
+Iroquois     Northeast Central                NaN  
+Jackson               Southern  Carbondale-Marion  
+Jasper       Southeast Central                NaN  
+Jefferson             Southern                NaN  
+Jersey       Southwest Central           St_Louis  
+Jo Daviess           Northwest                NaN  
+Johnson               Southern                NaN  
+Kane                    Collar              Elgin  
+Kankakee                Collar           Kankakee  
+Kendall                 Collar            Chicago  
+Knox              West Central                NaN  
+Lake                    Collar               Lake  
+LaSalle              Northwest                NaN  
+Lawrence     Southeast Central                NaN  
+Lee                  Northwest                NaN  
+Livingston       North Central                NaN  
+Logan                  Central                NaN  
+Macon                  Central            Decatur  
+Macoupin               Central           St_Louis  
+Madison      Southwest Central           St_Louis  
+Marion       Southeast Central                NaN  
+Marshall         North Central             Peoria  
+Mason            North Central                NaN  
+Massac                Southern                NaN  
+McDonough         West Central                NaN  
+McHenry                 Collar            Chicago  
+McLean           North Central        Bloomington  
+Menard                 Central        Springfield  
+Mercer               Northwest          Davenport  
+Monroe       Southwest Central           St_Louis  
+Montgomery             Central                NaN  
+Morgan                 Central                NaN  
+Moultrie     Southeast Central                NaN  
+Ogle                  Northern                NaN  
+Peoria           North Central             Peoria  
+Perry                 Southern                NaN  
+Piatt        Northeast Central   Champaign-Urbana  
+Pike              West Central                NaN  
+Pope                  Southern                NaN  
+Pulaski               Southern                NaN  
+Putnam               Northwest                NaN  
+Randolph              Southern                NaN  
+Richland     Southeast Central                NaN  
+Rock Island          Northwest          Davenport  
+Saline                Southern                NaN  
+Sangamon               Central        Springfield  
+Schuyler          West Central                NaN  
+Scott                  Central                NaN  
+Shelby                 Central                NaN  
+St. Clair    Southwest Central           St_Louis  
+Stark            North Central             Peoria  
+Stephenson            Northern                NaN  
+Tazewell         North Central             Peoria  
+Unassigned          Unassigned                NaN  
+Union                 Southern                NaN  
+Vermilion    Northeast Central           Danville  
+Wabash                Southern                NaN  
+Warren            West Central                NaN  
+Washington   Southwest Central                NaN  
+Wayne                 Southern                NaN  
+White                 Southern                NaN  
+Whiteside            Northwest                NaN  
+Will                    Collar            Chicago  
+Williamson            Southern  Carbondale-Marion  
+Winnebago             Northern           Rockford  
+Woodford         North Central             Peoria  
 ```
 
 
