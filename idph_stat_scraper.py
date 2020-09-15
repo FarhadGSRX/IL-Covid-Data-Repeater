@@ -106,7 +106,7 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
     # %%
     zip_table_headers = zip_table_soup.find_all("th")
     zip_table_headers_arr = [x.get_text() for x in zip_table_headers]
-    print(zip_table_headers_arr)
+    #print(zip_table_headers_arr)
     # 9/14/2020 change
     if zip_table_headers_arr[2] == "Confirmed Cases":
         zip_table_headers_arr[2] = "Positive Cases"
@@ -301,8 +301,9 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
         # I'm not converting the hourly one because as datetimes it includes the wrong day.
         (cln.update_date) = pd.to_datetime(cln.update_date)
         cln.Tested = cln.Tested.apply(lambda x: "0" if x == "" else x)
-        cln.Positive_Cases, cln.Deaths, cln.Tested = cln.Positive_Cases.astype(int), cln.Deaths.astype(
-            int), cln.Tested.astype(int)
+        cln.Positive_Cases, cln.Deaths, cln.Tested = cln.Positive_Cases.replace(',', '').astype(int), \
+                                                     cln.Deaths.replace(',', '').astype(int), \
+                                                     cln.Tested.replace(',', '').astype(int)
 
         # County data is ready for roll-up and upload to NOFO_long
         cln_nofo = cln.groupby(by=["update_date", "update_time", "NOFO_Region"]).sum()
