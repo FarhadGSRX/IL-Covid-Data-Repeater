@@ -9,6 +9,20 @@ from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime, timedelta
 from pytz import timezone
 
+import time
+import sys
+import argparse
+from pathlib import Path
+from datetime import datetime
+import shutil
+
+from selenium import webdriver
+
+import idph_stat_scraper as idph_stat_scraper
+import report_maker
+import git_committer
+
+
 # The reason we have to use selenium is because many pages actually load their html within javascript...
 from selenium import webdriver
 
@@ -106,17 +120,10 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
     # %%
     zip_table_headers = zip_table_soup.find_all("th")
     zip_table_headers_arr = [x.get_text() for x in zip_table_headers]
-    #print(zip_table_headers_arr)
-    # 9/14/2020 change
-    if zip_table_headers_arr[2] == "Confirmed Cases":
-        zip_table_headers_arr[2] = "Positive Cases"
     assert zip_table_headers_arr == ['Zip', 'Tested', 'Positive Cases', 'Deaths']
 
     county_table_headers = county_table_soup.find_all("th")
     county_table_headers_arr = [x.get_text() for x in county_table_headers]
-    # 9/14/2020 change
-    if county_table_headers_arr[2] == "Confirmed Cases":
-        county_table_headers_arr[2] = "Positive Cases"
     assert county_table_headers_arr == ['County', 'Tested', 'Positive Cases', 'Deaths']
 
     #print("Zip first:")
@@ -269,7 +276,7 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
     else:
         print("\tZip version was not uploaded.")
 
-    if county_changed:
+    if True:   ## CHANGED THIS was county_changed
         df_county_oldlong = county_spread.sheet_to_df(index=0, sheet=county_spread.find_sheet("long"))
         df_county_today['update_date'] = the_date_YEAR
         df_county_today['update_time'] = the_time
@@ -301,10 +308,8 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
         # I'm not converting the hourly one because as datetimes it includes the wrong day.
         (cln.update_date) = pd.to_datetime(cln.update_date)
         cln.Tested = cln.Tested.apply(lambda x: "0" if x == "" else x)
-        cln.Positive_Cases = cln.Positive_Cases.str.replace(',', '')
-        cln.Deaths = cln.Deaths.str.replace(',', '')
-        cln.Tested = cln.Tested.str.replace(',', '')
-        cln.Positive_Cases, cln.Deaths, cln.Tested = cln.Positive_Cases.astype(int), cln.Deaths.astype(int), cln.Tested.astype(int)
+        cln.Positive_Cases, cln.Deaths, cln.Tested = cln.Positive_Cases.astype(int), cln.Deaths.astype(
+            int), cln.Tested.astype(int)
 
         # County data is ready for roll-up and upload to NOFO_long
         cln_nofo = cln.groupby(by=["update_date", "update_time", "NOFO_Region"]).sum()
@@ -322,3 +327,26 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
     print("End of " + the_time + " run.")
 
     return zip_changed or county_changed
+
+
+
+if __name__ == "__main__":
+    config = dict()
+    chrome_options = webdriver.ChromeOptions()
+
+    config['script_folder'] = Path(".")
+    config['creds_path'] = "creds.json"
+    config['backup_folder'] = Path("backup")
+    config['idph_csv_folder'] = Path("idph_csv")
+    config['geo_folder'] = Path("geo_data")
+    config['chrome_path'] = shutil.which('chromedriver')
+    chrome_options.add_argument('--ignore-certificate-errors')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument("--window-size=1024,768")
+    chrome_options.add_argument("--test-type")
+    chrome_options.add_argument("--no-sandbox")
+
+    the_work(chrome_options=chrome_options, **config)
+
+

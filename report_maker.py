@@ -52,8 +52,9 @@ def the_work(script_folder, creds_path, geo_folder, **kwargs):
 
     # Calculate difference columns
     df_merge = df_county_today.merge(df_county_yday, how="left", left_index=True, right_index=True)
+    for col in ['Tested_x', 'Positive_Cases_x', 'Deaths_x', 'Tested_y', 'Positive_Cases_y', 'Deaths_y']:
+        df_merge[col] = df_merge[col].str.replace(',', '')
     df_merge.fillna(0, inplace=True)
-    df_merge.str.replace(',', '')
     df_merge = df_merge.astype(int)
     df_merge['Tests_Diff'] = df_merge['Tested_x'] - df_merge['Tested_y']
     df_merge['Case_Diff'] = df_merge['Positive_Cases_x'] - df_merge['Positive_Cases_y']
