@@ -50,6 +50,8 @@ By County
 
 
 ### Notes:
+On 9/14/2020, "Positive Cases" on the IDPH website was relabelled "Confirmed Cases".  We're assuming these are equivalent and collecting the new data in the old columns.
+
 On 8/28/2020, I had to split up the increasingly large google sheets to avoid hitting the max number of tabs. Above this is reflected as more links to various subsets of the data.
 
 On 4/18/2020, IDPH began to add a column for "Total Tested", the numbers for which on the first day are inconsistent with future uploads.

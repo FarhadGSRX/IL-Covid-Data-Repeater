@@ -106,10 +106,17 @@ def the_work(creds_path, backup_folder, idph_csv_folder, geo_folder, chrome_opti
     # %%
     zip_table_headers = zip_table_soup.find_all("th")
     zip_table_headers_arr = [x.get_text() for x in zip_table_headers]
+    print(zip_table_headers_arr)
+    # 9/14/2020 change
+    if zip_table_headers_arr[2] == "Confirmed Cases":
+        zip_table_headers_arr[2] = "Positive Cases"
     assert zip_table_headers_arr == ['Zip', 'Tested', 'Positive Cases', 'Deaths']
 
     county_table_headers = county_table_soup.find_all("th")
     county_table_headers_arr = [x.get_text() for x in county_table_headers]
+    # 9/14/2020 change
+    if county_table_headers_arr[2] == "Confirmed Cases":
+        county_table_headers_arr[2] = "Positive Cases"
     assert county_table_headers_arr == ['County', 'Tested', 'Positive Cases', 'Deaths']
 
     #print("Zip first:")
