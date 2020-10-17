@@ -25,8 +25,8 @@ Please distribute freely.
 
 Cheers, Fg
 
-## Most Recent Report (10-16-20 12:47)
-##### Date Comparison: 10-16-20 and 10-15-20
+## Most Recent Report (10-17-20 12:46)
+##### Date Comparison: 10-17-20 and 10-16-20
 ###### (The numbers below are not absolute values. They are the direct result of subtracting yesterday's values from today's values. Ie, a positive number indicates a growth in count.)
 
 By NOFO Regions
@@ -35,21 +35,21 @@ By NOFO Regions
                   Daily Difference              Totals to Date               
                              Tests Cases Deaths          Tests   Cases Deaths
 NOFO Region                                                                  
-Central                       3898   274      3         276217   10449    212
-Chicago                      14603   774      4        1340053   87575   3007
-Collar                       16103  1173      8        1333598   82305   2080
-Illinois                     87759  4554     38        6618768  336174   9165
-North Central                 3413   273      0         322416   12354    162
-Northeast Central            14957   109      2         745867    8306     71
-Northern                      2712   291      1         210144   13895    243
-Northwest                     2440   179      3         181257    9919    206
-Out Of State                   268     0      0          51177       2      0
-Southeast Central             1505   117      6         110319    6868    142
-Southern                      2000   173      4         144546    9377    217
-Southwest Central             3071   204      4         232632   17640    443
-Suburban                     14637   836      3        1158181   73070   2332
-Unassigned                     345     4      0          61194      36      0
-West Central                  1356   150      0          89092    4374     50
+Central                       2377   151      0         278594   10600    212
+Chicago                      14569   885      6        1354622   88460   3013
+Collar                       13598   846      7        1347196   83151   2087
+Illinois                     77489  3629     27        6696257  339803   9192
+North Central                 3516   122      1         325932   12476    163
+Northeast Central             9457   125      0         755324    8431     71
+Northern                      3077   271      0         213221   14166    243
+Northwest                     1844   119      3         183101   10038    209
+Out Of State                   319    -1      0          51496       1      0
+Southeast Central             1246   103      2         111565    6971    144
+Southern                      1279   121      1         145825    9498    218
+Southwest Central             2641   110      2         235273   17750    445
+Suburban                     15028   690      5        1173209   73760   2337
+Unassigned                     160     1      0          61354      37      0
+West Central                  1136    86      0          90228    4460     50
 ```
 
 By Metro Areas
@@ -57,22 +57,22 @@ By Metro Areas
                   Daily Difference              Totals to Date               
                              Tests Cases Deaths          Tests   Cases Deaths
 Metro Area                                                                   
-Bloomington                    830    36      0          94741    4034     33
-Cape_Girardeau                  17     0      0           2253     105      1
-Carbondale-Marion              496    52      1          50997    3065     82
-Champaign-Urbana             14162    45      2         690212    5953     37
-Chicago                      38860  2304     13        3275949  205859   6502
-Danville                       401    38      0          33195    1444      7
-Davenport                      968    81      1          92932    4534     98
-Decatur                       1206    98      0          46679    2371     48
-Elgin                         2810   245      0         243638   16931    380
-Illinois                     87759  4554     38        6618768  336174   9165
-Kankakee                       888    38      0          59767    3089     78
-Lake                          3369   218      2         291830   19077    501
-Peoria                        1899   191      0         194099    7214    119
-Rockford                      1708   218      0         138399   10142    187
-Springfield                   1698    93      1         126849    3449     55
-St_Louis                      3185   220      4         249989   18072    450
+Bloomington                    931    22      0          95672    4056     33
+Cape_Girardeau                  11     0      0           2264     105      1
+Carbondale-Marion              299    18      0          51296    3083     82
+Champaign-Urbana              8592    42      0         698804    5995     37
+Chicago                      37799  2067     16        3313748  207926   6518
+Danville                       455    35      0          33650    1479      7
+Davenport                      865    47      1          93797    4581     99
+Decatur                        741    58      0          47420    2429     48
+Elgin                         2843   197      2         246481   17128    382
+Illinois                     77489  3629     27        6696257  339803   9192
+Kankakee                       358    13      0          60125    3102     78
+Lake                          2981   175      0         294811   19252    501
+Peoria                        1646    77      1         195745    7291    120
+Rockford                      1974   227      0         140373   10369    187
+Springfield                   1144    60      0         127993    3509     55
+St_Louis                      2728   116      2         252717   18188    452
 ```
 
 By County
@@ -81,112 +81,112 @@ By County
              Daily Difference              Totals to Date                 \
                         Tests Cases Deaths          Tests   Cases Deaths   
 County                                                                     
-Illinois                87759  4554     38        6618768  336174   9165   
-Adams                     406    37      0          36059    1525     14   
-Alexander                  17     0      0           2253     105      1   
-Bond                       59    15      0           7098     432      9   
-Boone                     210    35      0          19465    1562     24   
-Brown                      19     7      0           1933      94      0   
-Bureau                    302     6      0          11679     827     16   
-Calhoun                    42     1      0           1497      67      0   
-Carroll                   136     8      0           6036     336      7   
-Cass                       33     3      0           5330     445     11   
-Champaign               13784    37      0         674651    5596     28   
-Chicago                 14603   774      4        1340053   87575   3007   
-Christian                 121     8      2          13375     747     25   
-Clark                      41     6      0           5284     247      6   
-Clay                       42     6      2           4182     268     11   
-Clinton                   175    35      0          15826    1515     23   
-Coles                     242    36      0          25877    1730     38   
-Cook                    14637   836      3        1158181   73070   2332   
-Crawford                  131     4      0           5303     608      6   
-Cumberland                 51     2      0           4431     246      5   
-De Witt                    80     0      0           5077     219      3   
-DeKalb                    584    22      0          39352    2006     42   
-Douglas                   268    23      0           9661     470      8   
-DuPage                   4830   310      3         383286   20277    595   
-Edgar                      25     1      0           4340     136      8   
-Edwards                    12     6      0           1002      93      0   
-Effingham                 260    16      0          13968    1044      3   
-Fayette                    55     8      1           7516     597     17   
-Ford                       84     0      2           5982     162      9   
-Franklin                  297    22      0          14498     801      6   
-Fulton                    356    20      0          13228     364      0   
-Gallatin                   10     1      0            968     101      2   
-Greene                     35     7      0           4402     260     15   
-Grundy                    146    18      0          12561     838      7   
-Hamilton                   17     2      0           1793     103      2   
-Hancock                    99     6      0           6367     270      3   
-Hardin                      7     1      0           1221      49      0   
-Henderson                  15     2      0           1592      95      0   
-Henry                     202    10      0          19200     785      5   
-Iroquois                  126     3      0          12799     439     19   
-Jackson                   238    18      0          21281    1410     25   
-Jasper                     47     3      0           3165     237     10   
-Jefferson                 167     6      2          11732     840     43   
-Jersey                     74     8      0           7321     446     21   
-Jo Daviess                 32    11      2           6487     392      5   
-Johnson                    40     9      0           3406     298      0   
-Kane                     2226   223      0         204286   14925    338   
-Kankakee                  888    38      0          59767    3089     78   
-Kendall                   488    33      0          40034    2382     27   
-Knox                      402    47      0          21249    1029      9   
-Lake                     3369   218      2         291830   19077    501   
-LaSalle                   334    31      0          35652    2100     58   
-Lawrence                   37     6      1           6084     302      8   
-Lee                       314    13      0           9393     562      1   
-Livingston                206    18      0          14755     517      9   
-Logan                     225     1      0          17045     526      4   
-Macon                    1206    98      0          46679    2371     48   
-Macoupin                  157    18      0          21124     703      8   
-Madison                  1182    85      2          90444    6650    152   
-Marion                    316     7      0          16615     814     11   
-Marshall                   74     3      0           5297     132      3   
-Mason                     122     8      0           5593     225      1   
-Massac                     18     1      0           3151     136      2   
-McDonough                 163    23      0          10397     621     15   
-McHenry                  1021    86      1          90441    5396    120   
-McLean                    750    36      0          89664    3815     30   
-Menard                     62     4      0           5518     156      1   
-Mercer                     92    10      0           5670     205      6   
-Monroe                    108    10      0           9768     829     27   
-Montgomery                149     5      0          15876     511     14   
-Morgan                    157    17      0          14998     786     24   
-Moultrie                   64    14      0           6183     333      5   
-Ogle                      306    37      1          17580    1001      7   
-Out Of State              268     0      0          51177       2      0   
-Peoria                    868    67      0         102212    4136     59   
-Perry                      60     7      0           7198     394     16   
-Piatt                     294     8      0           9579     195      0   
-Pike                      179    21      0           4529     230      2   
-Pope                        7     0      0            698      36      1   
-Pulaski                    24     0      0           1783     218      1   
-Putnam                     29     6      0           1438      81      0   
-Randolph                  250    17      0          14073    1107     14   
-Richland                  194     8      2           7371     306     14   
-Rock Island               674    61      1          68062    3544     87   
-Saline                     47     5      0           7712     468      7   
-Sangamon                 1636    89      1         121331    3293     54   
-Schuyler                   17     3      0           2145      78      1   
-Scott                      35     0      0           2553      88      0   
-Shelby                     82    24      0           7986     563      8   
-St. Clair                1388    48      2          96911    7430    210   
-Stark                      22     4      0           2350      78      2   
-Stephenson                114    14      0          14813     746      7   
-Tazewell                  746    87      0          69014    2334     45   
-Unassigned                345     4      0          61194      36      0   
-Union                      78    18      0           7728     713     25   
-Vermilion                 401    38      0          33195    1444      7   
-Wabash                     58    10      0           2740     200      5   
-Warren                     56     4      0           4821     432      6   
-Washington                 43     2      0           3767     271      1   
-Wayne                      28    11      1           5116     422      9   
-White                     367     5      0           6477     228      1   
-Whiteside                 325    23      0          17640    1087     21   
-Will                     3135   247      2         251393   16321    414   
-Williamson                258    34      1          29716    1655     57   
-Winnebago                1498   183      0         118934    8580    163   
-Woodford                  189    30      0          15226     534     10   
+Illinois                77489  3629     27        6696257  339803   9192   
+Adams                     169    17      0          36228    1542     14   
+Alexander                  11     0      0           2264     105      1   
+Bond                       99     8      0           7197     440      9   
+Boone                     276    34      0          19741    1596     24   
+Brown                      36    -1      0           1969      93      0   
+Bureau                    122     5      1          11801     832     17   
+Calhoun                    31     3      0           1528      70      0   
+Carroll                    93    14      0           6129     350      7   
+Cass                       41     2      0           5371     447     11   
+Champaign                8327    38      0         682978    5634     28   
+Chicago                 14569   885      6        1354622   88460   3013   
+Christian                  61     3      0          13436     750     25   
+Clark                      81     4      0           5365     251      6   
+Clay                       46     4      0           4228     272     11   
+Clinton                   183    26      1          16009    1541     24   
+Coles                     480    29      0          26357    1759     38   
+Cook                    15028   690      5        1173209   73760   2337   
+Crawford                   27     1      0           5330     609      6   
+Cumberland                  3     1      1           4434     247      6   
+De Witt                    47     3      0           5124     222      3   
+DeKalb                    786    31      0          40138    2037     42   
+Douglas                   153    42      0           9814     512      8   
+DuPage                   4101   200      1         387387   20477    596   
+Edgar                      18     1      0           4358     137      8   
+Edwards                     9     4      0           1011      97      0   
+Effingham                  89    13      0          14057    1057      3   
+Fayette                    89    18      0           7605     615     17   
+Ford                      145     1      0           6127     163      9   
+Franklin                  145    12      0          14643     813      6   
+Fulton                    149     8      0          13377     372      0   
+Gallatin                   14     2      0            982     103      2   
+Greene                     20     1      0           4422     261     15   
+Grundy                    203     8      0          12764     846      7   
+Hamilton                   43     3      0           1836     106      2   
+Hancock                    66     6      0           6433     276      3   
+Hardin                      9     0      0           1230      49      0   
+Henderson                  52     6      0           1644     101      0   
+Henry                     321     2      0          19521     787      5   
+Iroquois                  257     6      0          13056     445     19   
+Jackson                   128     5      0          21409    1415     25   
+Jasper                     27     2      0           3192     239     10   
+Jefferson                 127     7      1          11859     847     44   
+Jersey                     44     2      0           7365     448     21   
+Jo Daviess                 63     9      0           6550     401      5   
+Johnson                    29    10      0           3435     308      0   
+Kane                     2057   166      2         206343   15091    340   
+Kankakee                  358    13      0          60125    3102     78   
+Kendall                   409    35      0          40443    2417     27   
+Knox                      321    25      0          21570    1054      9   
+Lake                     2981   175      0         294811   19252    501   
+LaSalle                   410    28      1          36062    2128     59   
+Lawrence                   41     2      0           6125     304      8   
+Lee                        83     2      0           9476     564      1   
+Livingston                688    12      0          15443     529      9   
+Logan                      83     3      0          17128     529      4   
+Macon                     741    58      0          47420    2429     48   
+Macoupin                  109     6      0          21233     709      8   
+Madison                   968    35      0          91412    6685    152   
+Marion                    246     9      1          16861     823     12   
+Marshall                   32     0      0           5329     132      3   
+Mason                     102     3      0           5695     228      1   
+Massac                     16     2      0           3167     138      2   
+McDonough                 330    14      0          10727     635     15   
+McHenry                   969    89      0          91410    5485    120   
+McLean                    884    19      0          90548    3834     30   
+Menard                     69     3      0           5587     159      1   
+Mercer                     56     5      0           5726     210      6   
+Monroe                    318     6      0          10086     835     27   
+Montgomery                 95    15      0          15971     526     14   
+Morgan                     34     1      0          15032     787     24   
+Moultrie                   32    16      0           6215     349      5   
+Ogle                      187    10      0          17767    1011      7   
+Out Of State              319    -1      0          51496       1      0   
+Peoria                    750    30      0         102962    4166     59   
+Perry                      49     7      0           7247     401     16   
+Piatt                     120     3      0           9699     198      0   
+Pike                       46     7      0           4575     237      2   
+Pope                        6     0      0            704      36      1   
+Pulaski                    36     5      0           1819     223      1   
+Putnam                     16     1      0           1454      82      0   
+Randolph                  229    23      0          14302    1130     14   
+Richland                   67     3      0           7438     309     14   
+Rock Island               488    40      1          68550    3584     88   
+Saline                     51    11      0           7763     479      7   
+Sangamon                 1075    57      0         122406    3350     54   
+Schuyler                   13     1      0           2158      79      1   
+Scott                      10     0      0           2563      88      0   
+Shelby                     39     2      0           8025     565      8   
+St. Clair                 976    30      1          97887    7460    211   
+Stark                      80     0      0           2430      78      2   
+Stephenson                130     3      0          14943     749      7   
+Tazewell                  589    40      1          69603    2374     46   
+Unassigned                160     1      0          61354      37      0   
+Union                     141     6      0           7869     719     25   
+Vermilion                 455    35      0          33650    1479      7   
+Wabash                      9     1      0           2749     201      5   
+Warren                    103    11      0           4924     443      6   
+Washington                 22     0      0           3789     271      1   
+Wayne                      21     7      0           5137     429      9   
+White                      35     3      0           6512     231      1   
+Whiteside                 192    13      0          17832    1100     21   
+Will                     2520   160      4         253913   16481    418   
+Williamson                171    13      0          29887    1668     57   
+Winnebago                1698   193      0         120632    8773    163   
+Woodford                  195     7      0          15421     541     10   
 
                          Region                     
                     NOFO Region         Metro Area  
