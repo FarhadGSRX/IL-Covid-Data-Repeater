@@ -2,7 +2,8 @@
 
 Hello Illinois Covid-19 Researchers and Responders,
 
-To facilitate your raw data needs, I am continually scraping and updating these google sheets with the numbers from the IDPH Statistics front page.
+This repository contains data from the [IDPH website](http://www.dph.illinois.gov/covid19/covid19-statistics).  Data is collected daily to create a time series of statistics.  Some data labels on the site changed over time (eg. Confirmed Cases vs. Positive Cases), but similar data has been merged under the same headers here.
+
 The scraper runs automatically. The sheets (linked below) only update when there are new results from IDPH.
 These are all _raw_ numbers from the IDPH Website. 
 
@@ -50,11 +51,15 @@ By County
 
 
 ### Notes:
-On 9/14/2020, "Positive Cases" on the IDPH website was relabelled "Confirmed Cases".  We're assuming these are equivalent and collecting the new data in the old columns.
+Data for 10/31/2020 appears not to have posted to the IDPH site until 11/1/2020 so there are two entries in the long data sets for 11/1/2020 because there was also an update on 11/1/2020 for that day. - CM
 
-On 8/28/2020, I had to split up the increasingly large google sheets to avoid hitting the max number of tabs. Above this is reflected as more links to various subsets of the data.
+Zip code testing data from 10/11/2020 is missing (the values are 0).  There is not a clear way to recover this from the IDPH website.  If anyone has this data, I can update the files. - CM
 
-On 4/18/2020, IDPH began to add a column for "Total Tested", the numbers for which on the first day are inconsistent with future uploads.
-I have personally investigated my webscraper logs and have confirmed that this error was never corrected that day, but the numbers normalized the following day.
+On 9/14/2020, "Positive Cases" on the IDPH website was relabelled "Confirmed Cases".  We're assuming these are equivalent and collecting the new data in the old columns. - CM
 
-On 5/3/2020, I began scraping Google News to get a handle on the local news in our counties. That spreadsheet is also linked above.
+On 8/28/2020, I had to split up the increasingly large google sheets to avoid hitting the max number of tabs. Above this is reflected as more links to various subsets of the data. -FG
+
+On 4/18/2020, IDPH began to add a column for "Total Tested", the numbers for which on the first day are inconsistent with future uploads.  I have personally investigated my webscraper logs and have confirmed that this error was never corrected that day, but the numbers normalized the following day.  -FG
+
+On 5/3/2020, I began scraping Google News to get a handle on the local news in our counties. That spreadsheet is also linked above.  -FG
+
