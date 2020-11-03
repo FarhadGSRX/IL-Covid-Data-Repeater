@@ -51,7 +51,7 @@ By County
 
 
 ### Notes:
-Data for 10/31/2020 appears not to have posted to the IDPH site until 11/1/2020 so there are two entries in the long data sets for 11/1/2020 because there was also an update on 11/1/2020 for that day. - CM
+Data for 10/31/2020 appears not to have posted to the IDPH site until 11/1/2020.  In the long-form data spreadsheets, the 10/31 entry has been manually updated to that day. - CM
 
 Zip code testing data from 10/11/2020 is missing (the values are 0).  There is not a clear way to recover this from the IDPH website.  If anyone has this data, I can update the files. - CM
 
