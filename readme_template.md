@@ -9,6 +9,9 @@ These are all _raw_ numbers from the IDPH Website.
 
 Please distribute freely.
 
+**NOTE:** We will try to keep this code running, but it is somewhat fragile, and it breaks with changes to the IDPH website.  A [new repository](https://github.com/cmaimone/idph_covid_data) that collects data from json files (instead of the rendered website), stores them in csv files (instead of google sheets), and includes demographic data and hospitalization statistics as well, is [available](https://github.com/cmaimone/idph_covid_data).  If there is something you're actively using in this repository that is missing from [the new one](https://github.com/cmaimone/idph_covid_data), [let Christina know](mailto:christina.maimone@norhtwestern.edu) and the new repository can likely be updated to accomodate the need.  **Please try to use the [new repository](https://github.com/cmaimone/idph_covid_data) instead.**
+
+
 [Illinois Totals Tracker](https://drive.google.com/open?id=1MWNebArAjjTTtJdxQcnUakShSbADhccx3xw28L2Nflo) | [csv](https://docs.google.com/spreadsheets/d/e/2PACX-1vTPKJQBxdcH_6Omx0RafPTtzOAct-dGKD_A3WNEGtCEVHlMQMvth0WmFVjZJROV1FBGHKwrTSgt17AV/pub?output=csv)
 
 
