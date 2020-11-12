@@ -2,14 +2,16 @@
 
 Hello Illinois Covid-19 Researchers and Responders,
 
-This repository contains data from the [IDPH website](http://www.dph.illinois.gov/covid19/covid19-statistics).  Data is collected daily to create a time series of statistics.  Some data labels on the site changed over time (eg. Confirmed Cases vs. Positive Cases), but similar data has been merged under the same headers here.
+This repository, and the linked Google Sheets, contain data from the [IDPH website](http://www.dph.illinois.gov/covid19/covid19-statistics) collected through 11/5/2020.  
 
-The scraper runs automatically. The sheets (linked below) only update when there are new results from IDPH.
+**A [new repository](https://github.com/cmaimone/idph_covid_data) contains all of the data collected here, as well as additional collection since 11/5/2020.**  Only the new repository will be updated moving forward.  Neither this repository nor the Google Sheets will be updated moving forward.
+
+
+## Data 
+
+Some data labels on the site changed over time (eg. Confirmed Cases vs. Positive Cases), but similar data has been merged under the same headers here.
+
 These are all _raw_ numbers from the IDPH Website. 
-
-Please distribute freely.
-
-**NOTE:** We will try to keep this code running, but it is somewhat fragile, and it breaks with changes to the IDPH website.  A [new repository](https://github.com/cmaimone/idph_covid_data) that collects data from json files (instead of the rendered website), stores them in csv files (instead of google sheets), and includes demographic data and hospitalization statistics as well, is [available](https://github.com/cmaimone/idph_covid_data).  If there is something you're actively using in this repository that is missing from [the new one](https://github.com/cmaimone/idph_covid_data), [let Christina know](mailto:christina.maimone@norhtwestern.edu) and the new repository can likely be updated to accomodate the need.  **Please try to use the [new repository](https://github.com/cmaimone/idph_covid_data) instead.**
 
 
 [Illinois Totals Tracker](https://drive.google.com/open?id=1MWNebArAjjTTtJdxQcnUakShSbADhccx3xw28L2Nflo) | [csv](https://docs.google.com/spreadsheets/d/e/2PACX-1vTPKJQBxdcH_6Omx0RafPTtzOAct-dGKD_A3WNEGtCEVHlMQMvth0WmFVjZJROV1FBGHKwrTSgt17AV/pub?output=csv)
@@ -25,9 +27,8 @@ Please distribute freely.
 [Illinois Stats by County - Start thru August 26, 2020](https://docs.google.com/spreadsheets/d/1FByx9UUGQ4SLnUv8rZOFaji5F-KjoDcVu68vkU7ZJss) | [csv](https://docs.google.com/spreadsheets/d/e/2PACX-1vSlixXENtmT18YM4ZwZkoFSDeol4EZ9aV1iDJle6Q4BBQEaKUZKEQlRhRPR18KwdpenXaiopztY38HC/pub?output=csv)
 
 
-[Illinois Counties Covid-19 News Compiler](https://docs.google.com/spreadsheets/d/1Ik_Cyiv5Be4Cx-mCAf9jjNf1t4MVTmxqQeNesJjXhWY/)
 
-Cheers, Fg
+
 
 ## Most Recent Report (11-05-20 12:47)
 ##### Date Comparison: 11-05-20 and 11-04-20
@@ -309,7 +310,7 @@ Woodford          North Central             Peoria
 ### Notes:
 Data for 10/31/2020 appears not to have posted to the IDPH site until 11/1/2020.  In the long-form data spreadsheets, the 10/31 entry has been manually updated to that day. - CM
 
-Zip code testing data from 10/11/2020 is missing (the values are 0).  There is not a clear way to recover this from the IDPH website.  If anyone has this data, I can update the files. - CM
+Zip code testing data from 10/11/2020 was initially missing, but they have since been filled in.   - CM
 
 On 9/14/2020, "Positive Cases" on the IDPH website was relabelled "Confirmed Cases".  We're assuming these are equivalent and collecting the new data in the old columns. - CM
 
@@ -317,5 +318,4 @@ On 8/28/2020, I had to split up the increasingly large google sheets to avoid hi
 
 On 4/18/2020, IDPH began to add a column for "Total Tested", the numbers for which on the first day are inconsistent with future uploads.  I have personally investigated my webscraper logs and have confirmed that this error was never corrected that day, but the numbers normalized the following day.  -FG
 
-On 5/3/2020, I began scraping Google News to get a handle on the local news in our counties. That spreadsheet is also linked above.  -FG
 
