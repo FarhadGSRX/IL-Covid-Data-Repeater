@@ -1,11 +1,11 @@
 # Illinois Covid-19 Data Repeater
+# Deprecated 11/05/2020 - Please visit [new repository](https://github.com/cmaimone/idph_covid_data)
 
 Hello Illinois Covid-19 Researchers and Responders,
 
 This repository, and the linked Google Sheets, contain data from the [IDPH website](http://www.dph.illinois.gov/covid19/covid19-statistics) collected through 11/5/2020.  
 
-**A [new repository](https://github.com/cmaimone/idph_covid_data) contains all of the data collected here, as well as additional collection since 11/5/2020.**  Only the new repository will be updated moving forward.  Neither this repository nor the Google Sheets will be updated moving forward.
-
+**A [new repository](https://github.com/cmaimone/idph_covid_data) contains all of the data collected here, as well as additional collection since 11/5/2020.** Only the new repository will be updated moving forward.  Neither this repository nor the Google Sheets will be updated moving forward.
 
 ## Data 
 
